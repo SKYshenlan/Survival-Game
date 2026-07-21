@@ -18,9 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: Enemy
+    ClassName: Play
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

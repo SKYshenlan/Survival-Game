@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using QFramework;
 
 namespace Brotato
@@ -12,11 +12,11 @@ namespace Brotato
 		}
         private void Update()
         {
-            //ÈÎÒâÒ»¸öÆ¥ÅäÀàĞÍµÄ¶ÔÏó
+            //ä»»æ„ä¸€ä¸ªåŒ¹é…ç±»å‹çš„å¯¹è±¡
             var play = FindObjectOfType<Play>();
-            //ÏòÁ¿µÄ³¤¶ÈÇ¿ÖÆ±ä³É 1
+            //å‘é‡çš„é•¿åº¦å¼ºåˆ¶å˜æˆ 1
             var dir = (play.transform.position - transform.position).normalized;
-			//µĞÈËÆ½»¬ÒÆ¶¯
+			//æ•Œäººå¹³æ»‘ç§»åŠ¨
 			transform.Translate(dir *Time.deltaTime * MoveSeppd);
         }
     }

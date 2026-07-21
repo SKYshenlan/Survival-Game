@@ -1,9 +1,11 @@
-// Generate Id:47e62ca6-791e-44ed-af88-ef5e4b0ffb5b
+﻿// Generate Id:86fa950d-6b5b-4689-8605-e089da78d7e3
 using UnityEngine;
 
 namespace Brotato
 {
 	public partial class Enemy
 	{
+		public SpriteRenderer Triangle;
+		
 	}
 }

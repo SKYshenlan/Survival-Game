@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using QFramework;
 
 namespace Brotato
@@ -13,12 +13,12 @@ namespace Brotato
 		}
         private void Update()
         {
-			//ÒÆ¶¯
+			//ç§»åŠ¨
 			x = Input.GetAxis("Horizontal");
 			y = Input.GetAxis("Vertical");
-            //ÏòÁ¿µÄ³¤¶ÈÇ¿ÖÆ±ä³É 1
+            //å‘é‡çš„é•¿åº¦å¼ºåˆ¶å˜æˆ 1
             var dir = new Vector2(x,y).normalized;
-            //¼ÆËãºÃµÄËÙ¶ÈÖµ¸³¸ø¸ÕÌå
+            //è®¡ç®—å¥½çš„é€Ÿåº¦å€¼èµ‹ç»™åˆšä½“
             DelfRigidbody2D.velocity = dir * MoveSpeed;
         }
     }
