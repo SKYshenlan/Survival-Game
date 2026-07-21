@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using QFramework;
+using GameUI;
 
 namespace Brotato
 {
@@ -7,10 +8,30 @@ namespace Brotato
 	{
 		private float MoveSpeed = 5f;
 		private float x, y;
-		void Start()
+        public static Play Defaulf;
+        #region 测试代码
+        private void Awake()
+        {
+            Defaulf = this;
+            ResKit.Init();
+        }
+        private void OnDestroy()
+        {
+            Defaulf = null;
+        }
+        #endregion
+        void Start()
 		{
-			// Code Here
-		}
+            // Code Here
+            //碰撞事件注册
+            HurtBox.OnTriggerEnter2DEvent(coll =>
+			{
+                //销毁
+                this.DestroyGameObjGracefully();
+                //打开面板
+                UIKit.OpenPanel<UIGameOvePanel>();
+			}).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
+        }
         private void Update()
         {
 			//移动
