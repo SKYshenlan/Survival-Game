@@ -13,7 +13,6 @@ namespace Brotato
         private void Awake()
         {
             Defaulf = this;
-            ResKit.Init();
         }
         private void OnDestroy()
         {
