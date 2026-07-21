@@ -1,4 +1,4 @@
-// Generate Id:858c36aa-2f56-4dca-bd31-61a584bf4667
+// Generate Id:3c0e847e-9632-4d1a-8f58-9e700585e1de
 using UnityEngine;
 
 namespace Brotato
@@ -6,6 +6,8 @@ namespace Brotato
 	public partial class Play
 	{
 		public SpriteRenderer Sprite;
+		
+		public UnityEngine.Rigidbody2D DelfRigidbody2D;
 		
 	}
 }
