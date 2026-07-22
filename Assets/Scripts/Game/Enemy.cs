@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using GameUI;
 using QFramework;
+using UnityEngine;
 
 namespace Brotato
 {
 	public partial class Enemy : ViewController
 	{
+        public float HP = 3;
 		private float MoveSeppd = 2f;
 		void Start()
 		{
@@ -20,6 +22,14 @@ namespace Brotato
                 var dir = (Play.Defaulf.transform.position - transform.position).normalized;
                 //敌人平滑移动
                 transform.Translate(dir * Time.deltaTime * MoveSeppd);
+            }
+            if (HP <= 0)
+            {
+                HP = 0;
+                //消除对象
+                this.DestroyGameObjGracefully();
+                //打开面板
+                UIKit.OpenPanel<UIGamePassPanel>();
             }
         }
     }

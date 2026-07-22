@@ -26,12 +26,14 @@ namespace Brotato
 					{
 						//更改敌人颜色表示受伤
 						item.Triangle.color = Color.red;
+                        item.HP--;
                         //静态管理器 延迟任务注册到全局生命周期
                         ActionKit.Delay(0.3f,() =>
 						{
-							//改变
+							//改变源颜色
 							item.Triangle.color = Color.white;
-						}).StartGlobal();//Start() 添加到当前物体生命周期中
+							
+						}).Start(item);//Start() 添加到当前物体生命周期中
                     }
                 }
             }
