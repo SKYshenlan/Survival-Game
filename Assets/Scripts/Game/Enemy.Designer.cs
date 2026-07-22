@@ -1,4 +1,4 @@
-﻿// Generate Id:86fa950d-6b5b-4689-8605-e089da78d7e3
+// Generate Id:1270bf31-79a6-4e37-874a-9b467540713b
 using UnityEngine;
 
 namespace Brotato

@@ -20,13 +20,10 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos:
     - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: CircleCollider2D
-      PathToRoot: HurtBox
-      MemberName: HurtBox
+      PathToRoot: Triangle
+      MemberName: Triangle
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: Play
+    ClassName: Enemy
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
