@@ -382,7 +382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 138766747956583163}
   - component: {fileID: 6665445334427313815}
-  - component: {fileID: -4236369438023001024}
   - component: {fileID: 1949538007842679372}
   m_Layer: 5
   m_Name: UIGamePanel
@@ -420,18 +419,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7016716644119991693}
   m_CullTransparentMesh: 1
---- !u!114 &-4236369438023001024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7016716644119991693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47bf3554af5a3a443a6f14c6d09e43eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1949538007842679372
 MonoBehaviour:
   m_ObjectHideFlags: 0
