@@ -31,8 +31,6 @@ namespace Brotato
                 this.DestroyGameObjGracefully();
                 //玩家增加经验
                 Global.Exp.Value++;
-                //打开面板
-                UIKit.OpenPanel<UIGamePassPanel>();
             }
         }
     }

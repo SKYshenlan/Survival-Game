@@ -18,9 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: Brotato.Enemy
+      PathToRoot: Enemy
+      MemberName: Enemy
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: GameUIController
+    ClassName: EnemyList
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
