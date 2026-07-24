@@ -18,6 +18,16 @@ namespace GameUI
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
 				xp.text = $"经验值：{exp}";
+				if (exp >= 5)
+				{
+					Global.Exp.Value -= 5;
+					Global.Leve.Value++;
+				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+			//注册并执行回调
+			Global.Leve.RegisterWithInitValue(Leve =>
+			{
+				leve.text = $"等级：{Leve}";
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
         }
 		

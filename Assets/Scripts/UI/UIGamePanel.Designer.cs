@@ -5,19 +5,22 @@ using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:9ece1759-e4fe-4b47-8c36-2177183898e7
+	// Generate Id:b09bc526-ef66-446b-b721-b434c80216c9
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
 		
 		[SerializeField]
 		public UnityEngine.UI.Text xp;
+		[SerializeField]
+		public UnityEngine.UI.Text leve;
 		
 		private UIGamePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
 			xp = null;
+			leve = null;
 			
 			mData = null;
 		}
