@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using QFramework;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace SurvivalGame
     public class Global
     {
         /// <summary>
-        /// 经验 主动通知UI发生改变的响应式数据容器
+        /// 缁忛獙 涓诲姩閫氱煡UI鍙戠敓鏀瑰彉鐨勫搷搴斿紡鏁版嵁瀹瑰櫒
         /// </summary>
         public static BindableProperty<int> Exp = new BindableProperty<int>();
     }

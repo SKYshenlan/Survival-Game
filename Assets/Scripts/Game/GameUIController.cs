@@ -1,4 +1,4 @@
-using GameUI;
+锘縰sing GameUI;
 using QFramework;
 using UnityEngine;
 
@@ -9,13 +9,13 @@ namespace Brotato
 		void Start()
 		{
 			// Code Here
-			//打开面板
+			//鎵撳紑闈㈡澘
 			UIKit.OpenPanel<UIGamePanel>();
 		}
 
         private void OnDestroy()
         {
-			//关闭面板
+			//鍏抽棴闈㈡澘
             UIKit.ClosePanel<UIGamePanel>();
         }
     }

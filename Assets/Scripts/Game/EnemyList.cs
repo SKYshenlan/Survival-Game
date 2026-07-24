@@ -1,4 +1,4 @@
-using UnityEngine;
+锘縰sing UnityEngine;
 using QFramework;
 
 namespace Brotato
@@ -12,17 +12,17 @@ namespace Brotato
             if(Second >= 1)
             {
                 Second = 0f;
-                //获取玩家
+                //鑾峰彇鐜╁
                 var play = Play.Defaulf;
-                //随机角度
+                //闅忔満瑙掑害
                 var randomAngle = Random.Range(0, 360f);
-                //随机半径
+                //闅忔満鍗婂緞
                 var randomRadius = randomAngle * Mathf.Deg2Rad;
-                //方向
+                //鏂瑰悜
                 var dir = new Vector3(Mathf.Cos(randomRadius),Mathf.Sin(randomRadius));
-                //位置
+                //浣嶇疆
                 var pos = play.transform.position + dir * 10;
-                //在“pos位置”生成敌人并显示
+                //鍦ㄢ�減os浣嶇疆鈥濈敓鎴愭晫浜哄苟鏄剧ず
                 Enemy.Instantiate().Position(pos).Show();  
             }
         }
