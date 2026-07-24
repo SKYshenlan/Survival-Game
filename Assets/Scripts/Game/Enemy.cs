@@ -15,8 +15,6 @@ namespace Brotato
 		}
         private void Update()
         {
-            //任意一个匹配类型的对象
-            //var play = FindObjectOfType<Play>();
             //向量的长度强制变成 1
             if (Play.Defaulf)
             {
