@@ -20,8 +20,14 @@ namespace GameUI
 				xp.text = $"经验值：{exp}";
 				if (exp >= 5)
 				{
+					int LV = Global.Leve.Value;
 					Global.Exp.Value -= 5;
 					Global.Leve.Value++;
+					if (LV != Global.Leve.Value)
+					{
+						Time.timeScale = 0;
+						BinUp.Show();
+					}
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
 			//注册并执行回调
@@ -29,6 +35,11 @@ namespace GameUI
 			{
 				leve.text = $"等级：{Leve}";
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+			BinUp.onClick.AddListener(() =>
+			{
+                Time.timeScale = 1;
+                BinUp.Hide();
+            });
         }
 		
 		protected override void OnOpen(IUIData uiData = null)
