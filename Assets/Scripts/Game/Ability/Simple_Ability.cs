@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using QFramework;
+using SurvivalGame;
 
 namespace Brotato
 {
@@ -26,7 +27,7 @@ namespace Brotato
 					{
 						//更改敌人颜色表示受伤
 						item.Triangle.color = Color.red;
-                        item.HP--;
+						item.HP -= Global.Atk.Value;
                         //静态管理器 延迟任务注册到全局生命周期
                         ActionKit.Delay(0.3f,() =>
 						{
