@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using QFramework;
 using SurvivalGame;
+using System;
 
 namespace GameUI
 {
@@ -15,6 +16,17 @@ namespace GameUI
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
             TextAtk();
+			Global.Second.RegisterWithInitValue(_time =>
+			{
+				if(Time.frameCount % 30 == 0)
+				{
+                    var currenSecond = Mathf.FloorToInt(_time);
+                    var seconds = currenSecond % 60;
+                    var minutes = _time / 60;
+                    time.text = $"「{minutes:00}:{seconds:00}」";
+                }
+
+            }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
             //注册并执行回调
             Global.Exp.RegisterWithInitValue(exp =>
 			{
@@ -36,7 +48,11 @@ namespace GameUI
 			{
 				leve.text = $"等级「{Leve}」";
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
-			BinUp.onClick.AddListener(() =>
+			ActionKit.OnUpdate.Register(() =>
+			{
+				Global.Second.Value += Time.deltaTime;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
+            BinUp.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
                 //记录当前等级攻击力

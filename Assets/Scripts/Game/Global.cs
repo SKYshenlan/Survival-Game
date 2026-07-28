@@ -19,5 +19,9 @@ namespace SurvivalGame
         /// 攻击力
         /// </summary>
         public static BindableProperty<float> Atk = new BindableProperty<float>(1);
+        /// <summary>
+        /// 倒计时
+        /// </summary>
+        public static BindableProperty<float> Second = new BindableProperty<float>(0);
     }
 }
