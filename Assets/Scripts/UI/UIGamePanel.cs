@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using QFramework;
 using SurvivalGame;
 using System;
+using Brotato;
 
 namespace GameUI
 {
@@ -16,6 +17,7 @@ namespace GameUI
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
             TextAtk();
+			var enemyList = FindObjectOfType<EnemyList>();
 			Global.Second.RegisterWithInitValue(_time =>
 			{
 				if(Time.frameCount % 30 == 0)
@@ -51,7 +53,7 @@ namespace GameUI
 			ActionKit.OnUpdate.Register(() =>
 			{
 				Global.Second.Value += Time.deltaTime;
-				if(Global.minutes.Value >= 3)
+				if(Global.minutes.Value >= 3 && enemyList.flag && !FindObjectOfType<Enemy>(false))
 				{
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}
