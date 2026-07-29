@@ -11,8 +11,14 @@ namespace Brotato
 		private float MoveSeppd = 2f;
 		void Start()
 		{
-			// Code Here
-		}
+            // Code Here
+            EnemyList.EnemyCount.Value++;
+
+        }
+        private void OnDestroy()
+        {
+            EnemyList.EnemyCount.Value--;
+        }
         private void Update()
         {
             //向量的长度强制变成 1

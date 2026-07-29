@@ -29,6 +29,7 @@ namespace Brotato
         /// </summary>
         private Queue<EnemyWave> mEnemyWaveQueue = new Queue<EnemyWave>();
         private EnemyWave currentWave = null;
+        public EnemyWave CcurrentWave => currentWave;
         /// <summary>
         /// 当前时间
         /// </summary>
@@ -42,6 +43,7 @@ namespace Brotato
         /// </summary>
         private int WaveCount = 0;
         public bool flag => WaveCount == EnemyWave.Count;
+        public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0);
         private void Start()
         {
             //遍历敌人集合

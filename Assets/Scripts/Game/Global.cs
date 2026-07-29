@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Brotato;
 using QFramework;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ namespace SurvivalGame
             Atk.Value = 1;
             Second.Value = 0;
             minutes.Value = 0;
+            EnemyList.EnemyCount.Value = 0;
         }
     }
 }

@@ -18,7 +18,12 @@ namespace GameUI
             // please add init code here
             TextAtk();
 			var enemyList = FindObjectOfType<EnemyList>();
-			Global.Second.RegisterWithInitValue(_time =>
+			EnemyList.EnemyCount.RegisterWithInitValue(count =>
+			{
+				enemyCount.text = $"敌人「{count}」";
+
+            }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
+            Global.Second.RegisterWithInitValue(_time =>
 			{
 				if(Time.frameCount % 30 == 0)
 				{
@@ -53,7 +58,8 @@ namespace GameUI
 			ActionKit.OnUpdate.Register(() =>
 			{
 				Global.Second.Value += Time.deltaTime;
-				if(Global.minutes.Value >= 3 && enemyList.flag && !FindObjectOfType<Enemy>(false))
+				//当波次达到条件、敌人是空并且敌人数量为0即可达成通关条件
+				if(enemyList.flag && enemyList.CcurrentWave == null && EnemyList.EnemyCount.Value == 0)
 				{
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}
