@@ -22,8 +22,8 @@ namespace GameUI
 				{
                     var currenSecond = Mathf.FloorToInt(_time);
                     var seconds = currenSecond % 60;
-                    var minutes = _time / 60;
-                    time.text = $"「{minutes:00}:{seconds:00}」";
+                    Global.minutes.Value = currenSecond / 60;
+                    time.text = $"「{Global.minutes.Value:00}:{seconds:00}」";
                 }
 
             }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
@@ -51,6 +51,11 @@ namespace GameUI
 			ActionKit.OnUpdate.Register(() =>
 			{
 				Global.Second.Value += Time.deltaTime;
+				if(Global.minutes.Value >= 3)
+				{
+					UIKit.OpenPanel<UIGamePassPanel>();
+				}
+
 			}).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
             BinUp.onClick.AddListener(() =>
             {
@@ -83,6 +88,7 @@ namespace GameUI
 		
 		protected override void OnClose()
 		{
+			Time.timeScale = 1;
 		}
 	}
 }

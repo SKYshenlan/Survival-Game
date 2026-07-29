@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using QFramework;
+﻿using QFramework;
+using SurvivalGame;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace GameUI
 {
@@ -20,7 +21,8 @@ namespace GameUI
 				//监听空格
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
-					this.CloseSelf();
+                    Global.ResetData();
+                    this.CloseSelf();
 					//切换场景
 					SceneManager.LoadScene("SampleScene");
 				}

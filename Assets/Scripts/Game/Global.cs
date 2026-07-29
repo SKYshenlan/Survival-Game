@@ -20,8 +20,20 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> Atk = new BindableProperty<float>(1);
         /// <summary>
-        /// 倒计时
+        /// 倒计时秒
         /// </summary>
         public static BindableProperty<float> Second = new BindableProperty<float>(0);
+        /// <summary>
+        /// 倒计时分
+        /// </summary>
+        public static BindableProperty<float> minutes = new BindableProperty<float>(0);
+        public static void ResetData()
+        {
+            Exp.Value = 0;
+            Leve.Value = 1;
+            Atk.Value = 1;
+            Second.Value = 0;
+            minutes.Value = 0;
+        }
     }
 }
