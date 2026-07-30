@@ -36,6 +36,16 @@ namespace SurvivalGame
         {
             return Leve.Value * 5;
         }
+        public static void Drop(GameObject go)
+        {
+            //90%的掉落概率
+            var DropRate = Random.Range(0, 100.0f);
+            if (DropRate <= 90)
+            {
+                //生成经验         
+                DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
+            }
+        }
         public static void ResetData()
         {
             Exp.Value = 0;

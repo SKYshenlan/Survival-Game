@@ -18,9 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: Brotato.Exp
+      PathToRoot: Exp
+      MemberName: Exp
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: pickupRange
+    ClassName: DropManager
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

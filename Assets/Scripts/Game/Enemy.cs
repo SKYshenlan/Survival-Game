@@ -35,10 +35,10 @@ namespace Brotato
             if (HP <= 0)
             {
                 HP = 0;
+                //生产经验
+                Global.Drop(gameObject);
                 //消除对象
                 this.DestroyGameObjGracefully();
-                //玩家增加经验
-                //currentWave.EnemyPrefab.Instantiate().Position(pos).Show();
             }
         }
         /// <summary>
