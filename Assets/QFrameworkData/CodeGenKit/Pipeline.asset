@@ -18,9 +18,15 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: Brotato.Exp
+      PathToRoot: Exp
+      MemberName: Exp
+    - TypeName: QFramework.ViewController
+      PathToRoot: Coins
+      MemberName: Coins
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: Coins
+    ClassName: DropManager
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

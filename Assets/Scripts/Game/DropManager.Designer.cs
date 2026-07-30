@@ -1,4 +1,4 @@
-// Generate Id:8214f56a-b74e-4c4b-90d3-ec190c272a62
+// Generate Id:a0f3b248-51d3-4d54-adb3-2a346a1402a3
 using UnityEngine;
 
 namespace Brotato
@@ -6,6 +6,8 @@ namespace Brotato
 	public partial class DropManager
 	{
 		public Brotato.Exp Exp;
+		
+		public QFramework.ViewController Coins;
 		
 	}
 }

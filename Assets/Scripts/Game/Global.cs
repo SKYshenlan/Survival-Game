@@ -49,6 +49,11 @@ namespace SurvivalGame
                 //生成经验         
                 DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
             }
+            else
+            {
+                //生成金币
+                DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();
+            }
         }
         public static void ResetData()
         {
