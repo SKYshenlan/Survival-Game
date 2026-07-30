@@ -22,6 +22,7 @@ namespace Brotato
                 var enemy = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
                 foreach (var item in enemy)
                 {
+                    //计算玩家和敌人的距离
                     var dir = (Play.Defaulf.transform.position - item.transform.position).magnitude;
                     if (dir <= 5)
                     {
