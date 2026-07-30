@@ -63,7 +63,6 @@ namespace SurvivalGame
             Second.Value = 0;
             minutes.Value = 0;
             AtkSpeed.Value = 1;
-            Coins.Value = 0;
             EnemyList.EnemyCount.Value = 0;
         }
     }
