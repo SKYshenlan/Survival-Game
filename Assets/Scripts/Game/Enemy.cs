@@ -3,6 +3,7 @@ using GameUI;
 using QFramework;
 using SurvivalGame;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 using static UnityEditor.Progress;
 
 namespace Brotato
@@ -37,7 +38,7 @@ namespace Brotato
                 //消除对象
                 this.DestroyGameObjGracefully();
                 //玩家增加经验
-                Global.Exp.Value++;
+                //currentWave.EnemyPrefab.Instantiate().Position(pos).Show();
             }
         }
         /// <summary>

@@ -25,11 +25,19 @@ namespace Brotato
             //碰撞事件注册
             HurtBox.OnTriggerEnter2DEvent(coll =>
 			{
-                //销毁
-                this.DestroyGameObjGracefully();
-                //打开面板
-                UIKit.OpenPanel<UIGameOvePanel>();
-			}).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
+               var hitBox = coll.GetComponent<HitBox>();
+                if (hitBox)
+                {
+                    if (hitBox.Owner.CompareTag("Enemy"))
+                    {
+                        //销毁
+                        this.DestroyGameObjGracefully();
+                        //打开面板
+                        UIKit.OpenPanel<UIGameOvePanel>();
+                    }
+                }
+
+            }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
         }
         private void Update()
         {
