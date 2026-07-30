@@ -28,6 +28,10 @@ namespace SurvivalGame
         /// 倒计时分
         /// </summary>
         public static BindableProperty<float> minutes = new BindableProperty<float>(0);
+        /// <summary>
+        /// 攻击速度
+        /// </summary>
+        public static BindableProperty<float> AtkSpeed = new BindableProperty<float>(1);
         public static void ResetData()
         {
             Exp.Value = 0;
@@ -35,6 +39,7 @@ namespace SurvivalGame
             Atk.Value = 1;
             Second.Value = 0;
             minutes.Value = 0;
+            AtkSpeed.Value = 1;
             EnemyList.EnemyCount.Value = 0;
         }
     }

@@ -1,7 +1,9 @@
-﻿using GameUI;
+﻿using System;
+using GameUI;
 using QFramework;
 using SurvivalGame;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace Brotato
 {
@@ -9,6 +11,7 @@ namespace Brotato
 	{
         public float HP = 3;
 		private float MoveSeppd = 2f;
+        private bool _flag = false;
 		void Start()
 		{
             // Code Here
@@ -36,6 +39,24 @@ namespace Brotato
                 //玩家增加经验
                 Global.Exp.Value++;
             }
+        }
+        /// <summary>
+        /// 掉血逻辑
+        /// </summary>
+        public void Hide(float value)
+        {
+            if (_flag) return;
+            //更改敌人颜色表示受伤
+            Triangle.color = Color.red;
+            HP -= Global.Atk.Value;
+            //静态管理器 延迟任务注册到全局生命周期
+            ActionKit.Delay(0.3f, () =>
+            {
+                //改变源颜色
+                Triangle.color = Color.white;
+                _flag = false;
+
+            }).Start(this);//Start() 添加到当前物体生命周期中
         }
     }
 }

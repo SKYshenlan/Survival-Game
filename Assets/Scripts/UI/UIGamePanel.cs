@@ -81,9 +81,9 @@ namespace GameUI
             {
                 Time.timeScale = 1;
                 //记录当前等级攻击力
-                float _atk = Global.Atk.Value;
-                //提升15%的攻击
-                Global.Atk.Value += _atk * 0.15f;
+                float Speed = Global.AtkSpeed.Value;
+                //提升5%的攻击速度
+                Global.AtkSpeed.Value -= Speed * 0.05f;
                 TextAtk();
                 Background.Hide();
             });
