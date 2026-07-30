@@ -32,6 +32,10 @@ namespace SurvivalGame
         /// 攻击速度
         /// </summary>
         public static BindableProperty<float> AtkSpeed = new BindableProperty<float>(1);
+        public static int GetExp()
+        {
+            return Leve.Value * 5;
+        }
         public static void ResetData()
         {
             Exp.Value = 0;

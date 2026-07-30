@@ -37,11 +37,11 @@ namespace GameUI
             //注册并执行回调
             Global.Exp.RegisterWithInitValue(exp =>
 			{
-				xp.text = $"经验值「{exp}」";
-				if (exp >= 5)
+				xp.text = $"经验值「{exp}/{Global.GetExp()}」";
+				if (exp >= Global.GetExp())
 				{
 					int LV = Global.Leve.Value;
-					Global.Exp.Value -= 5;
+					Global.Exp.Value = 0;
 					Global.Leve.Value++;
 					if (LV != Global.Leve.Value)
 					{
@@ -62,7 +62,7 @@ namespace GameUI
 				if(enemyList.flag && enemyList.CcurrentWave == null && EnemyList.EnemyCount.Value == 0)
 				{
 					UIKit.OpenPanel<UIGamePassPanel>();
-				}
+                }
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
 			//提升攻击力
