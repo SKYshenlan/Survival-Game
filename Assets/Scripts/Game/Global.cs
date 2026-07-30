@@ -32,6 +32,10 @@ namespace SurvivalGame
         /// 攻击速度
         /// </summary>
         public static BindableProperty<float> AtkSpeed = new BindableProperty<float>(1);
+        /// <summary>
+        /// 金币
+        /// </summary>
+        public static BindableProperty<int> Coins = new BindableProperty<int>(0);
         public static int GetExp()
         {
             return Leve.Value * 5;
@@ -54,6 +58,7 @@ namespace SurvivalGame
             Second.Value = 0;
             minutes.Value = 0;
             AtkSpeed.Value = 1;
+            Coins.Value = 0;
             EnemyList.EnemyCount.Value = 0;
         }
     }

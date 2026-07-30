@@ -22,11 +22,12 @@ namespace GameUI
 				//监听空格
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
-                    Global.ResetData();
+                    
                     this.CloseSelf();
 					//切换场景
 					SceneManager.LoadScene("SampleScene");
-				}
+                    Global.ResetData();
+                }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
         }
 		

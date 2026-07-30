@@ -17,16 +17,17 @@ namespace GameUI
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
             TextAtk();
-			var enemyList = FindObjectOfType<EnemyList>();
-			EnemyList.EnemyCount.RegisterWithInitValue(count =>
-			{
-				enemyCount.text = $"敌人「{count}」";
+            #region 回调
+            var enemyList = FindObjectOfType<EnemyList>();
+            EnemyList.EnemyCount.RegisterWithInitValue(count =>
+            {
+                enemyCount.text = $"敌人「{count}」";
 
             }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
             Global.Second.RegisterWithInitValue(_time =>
-			{
-				if(Time.frameCount % 30 == 0)
-				{
+            {
+                if (Time.frameCount % 30 == 0)
+                {
                     var currenSecond = Mathf.FloorToInt(_time);
                     var seconds = currenSecond % 60;
                     Global.minutes.Value = currenSecond / 60;
@@ -36,36 +37,47 @@ namespace GameUI
             }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
             //注册并执行回调
             Global.Exp.RegisterWithInitValue(exp =>
-			{
-				xp.text = $"经验值「{exp}/{Global.GetExp()}」";
-				if (exp >= Global.GetExp())
-				{
-					int LV = Global.Leve.Value;
-					Global.Exp.Value = 0;
-					Global.Leve.Value++;
-					if (LV != Global.Leve.Value)
-					{
-						Time.timeScale = 0;
+            {
+                xp.text = $"经验值「{exp}/{Global.GetExp()}」";
+                if (exp >= Global.GetExp())
+                {
+                    int LV = Global.Leve.Value;
+                    Global.Exp.Value = 0;
+                    Global.Leve.Value++;
+                    if (LV != Global.Leve.Value)
+                    {
+                        Time.timeScale = 0;
                         Background.Show();
-					}
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
-			//注册并执行回调
-			Global.Leve.RegisterWithInitValue(Leve =>
-			{
-				leve.text = $"等级「{Leve}」";
+                    }
+                }
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
-			ActionKit.OnUpdate.Register(() =>
-			{
-				Global.Second.Value += Time.deltaTime;
-				//当波次达到条件、敌人是空并且敌人数量为0即可达成通关条件
-				if(enemyList.flag && enemyList.CcurrentWave == null && EnemyList.EnemyCount.Value == 0)
-				{
-					UIKit.OpenPanel<UIGamePassPanel>();
+                                                             //注册并执行回调
+            Global.Leve.RegisterWithInitValue(Leve =>
+            {
+                leve.text = $"等级「{Leve}」";
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+            Global.Coins.RegisterWithInitValue(_coins =>
+            {
+                coins.text = $"金币「{_coins}」";
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+            ActionKit.OnUpdate.Register(() =>
+            {
+                Global.Second.Value += Time.deltaTime;
+                //当波次达到条件、敌人是空并且敌人数量为0即可达成通关条件
+                if (enemyList.flag && enemyList.CcurrentWave == null && EnemyList.EnemyCount.Value == 0)
+                {
+                    UIKit.OpenPanel<UIGamePassPanel>();
                 }
 
-			}).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
-			//提升攻击力
+            }).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
+            //从本地磁盘加载上次保存的金币数量
+            Global.Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
+            Global.Coins.Register(_Coins =>
+            {
+                PlayerPrefs.SetInt(nameof(_Coins), _Coins);
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+            #endregion
+            //提升攻击力
             BinUp.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
