@@ -16,6 +16,7 @@ namespace GameUI
 			mData = uiData as UIGamePassPanelData ?? new UIGamePassPanelData();
             // please add init code here
             //静态管理器 每帧执行管理器的全局队列
+            Time.timeScale = 0;
             ActionKit.OnUpdate.Register(() =>
             {
                 //监听空格

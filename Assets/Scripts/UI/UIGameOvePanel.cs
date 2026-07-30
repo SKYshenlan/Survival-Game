@@ -15,6 +15,7 @@ namespace GameUI
 		{
 			mData = uiData as UIGameOvePanelData ?? new UIGameOvePanelData();
             // please add init code here
+            Time.timeScale = 0;
             //静态管理器 每帧执行管理器的全局队列
             ActionKit.OnUpdate.Register(() =>
 			{
