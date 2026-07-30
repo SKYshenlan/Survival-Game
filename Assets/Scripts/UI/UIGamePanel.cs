@@ -46,7 +46,7 @@ namespace GameUI
 					if (LV != Global.Leve.Value)
 					{
 						Time.timeScale = 0;
-						BinUp.Show();
+                        Background.Show();
 					}
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
@@ -65,6 +65,7 @@ namespace GameUI
 				}
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
+			//提升攻击力
             BinUp.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
@@ -73,7 +74,18 @@ namespace GameUI
                 //提升15%的攻击
                 Global.Atk.Value += _atk * 0.15f;
                 TextAtk();
-                BinUp.Hide();
+                Background.Hide();
+            });
+			//提升攻击速度
+            attackSpeed.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                //记录当前等级攻击力
+                float _atk = Global.Atk.Value;
+                //提升15%的攻击
+                Global.Atk.Value += _atk * 0.15f;
+                TextAtk();
+                Background.Hide();
             });
         }
 
