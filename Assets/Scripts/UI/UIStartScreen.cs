@@ -15,6 +15,19 @@ namespace GameUI
 			mData = uiData as UIStartScreenData ?? new UIStartScreenData();
 			// please add init code here
 			#region 按钮
+			Global.Coins.RegisterWithInitValue(_coins =>
+			{
+				if (_coins >= 5)
+				{
+					BtnCoinsUp.Show();
+					BtnExpUp.Show();
+                }
+				else
+				{
+					BtnCoinsUp.Hide();
+					BtnExpUp.Hide();
+				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			Open.onClick.AddListener(() =>
 			{
 				Background.Show();
