@@ -17,6 +17,7 @@ namespace GameUI
 			#region 按钮
 			Global.Coins.RegisterWithInitValue(_coins =>
 			{
+				coins.text = $"金币「{_coins}」";
 				if (_coins >= 5)
 				{
 					BtnCoinsUp.Show();
