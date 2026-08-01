@@ -49,11 +49,13 @@ namespace SurvivalGame
         public static void AutoInit()
         {
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
+            Debug.Log(nameof(Coins));
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
             Coins.Register(_coins =>
             {
                 PlayerPrefs.GetInt(nameof(Coins), _coins);
+                Debug.Log(nameof(Coins));
             });
             ExpPercent.Register(_expPercent =>
             {

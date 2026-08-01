@@ -19,10 +19,6 @@ namespace Brotato
             EnemyList.EnemyCount.Value++;
 
         }
-        private void OnDestroy()
-        {
-            EnemyList.EnemyCount.Value--;
-        }
         private void Update()
         {
             //向量的长度强制变成 1
@@ -35,6 +31,7 @@ namespace Brotato
             if (HP <= 0)
             {
                 HP = 0;
+                EnemyList.EnemyCount.Value--;
                 //生产经验
                 Global.Drop(gameObject);
                 //消除对象
