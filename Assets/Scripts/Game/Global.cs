@@ -36,6 +36,32 @@ namespace SurvivalGame
         /// 金币
         /// </summary>
         public static BindableProperty<int> Coins = new BindableProperty<int>(0);
+        /// <summary>
+        /// 经验概率
+        /// </summary>
+        public static BindableProperty<float> ExpPercent = new BindableProperty<float>(0.3f);
+        /// <summary>
+        /// 金币概率
+        /// </summary>
+        public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
+        public static void AutoInit()
+        {
+            Global.Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
+            Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
+            Global.CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
+            Global.Coins.Register(_coins =>
+            {
+                PlayerPrefs.GetInt(nameof(Coins), _coins);
+            });
+            Global.ExpPercent.Register(_expPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(ExpPercent), _expPercent);
+            });
+            Global.CoinsPercent.Register(_coinsPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(CoinsPercent), _coinsPercent);
+            });
+        }
         public static int GetExp()
         {
             return Leve.Value * 5;

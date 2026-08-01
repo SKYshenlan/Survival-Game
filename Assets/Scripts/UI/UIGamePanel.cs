@@ -56,11 +56,8 @@ namespace GameUI
             {
                 leve.text = $"等级「{Leve}」";
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
-            //从本地磁盘加载上次保存的金币数量
-            Global.Coins.Value = PlayerPrefs.GetInt("_coins", 0);
             Global.Coins.RegisterWithInitValue(_coins =>
             {
-                PlayerPrefs.SetInt(nameof(_coins), _coins);
                 coins.text = $"金币「{_coins}」";
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
             ActionKit.OnUpdate.Register(() =>

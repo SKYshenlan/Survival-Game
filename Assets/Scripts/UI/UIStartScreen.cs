@@ -1,0 +1,53 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using QFramework;
+using SurvivalGame;
+
+namespace GameUI
+{
+	public class UIStartScreenData : UIPanelData
+	{
+	}
+	public partial class UIStartScreen : UIPanel
+	{
+		protected override void OnInit(IUIData uiData = null)
+		{
+			mData = uiData as UIStartScreenData ?? new UIStartScreenData();
+			// please add init code here
+			#region 按钮
+			Open.onClick.AddListener(() =>
+			{
+				Background.Show();
+			});
+			BtnCoinsUp.onClick.AddListener(() =>
+			{
+				Global.CoinsPercent.Value += 0.05f;
+			});
+			BtnExpUp.onClick.AddListener(() =>
+			{
+                Global.ExpPercent.Value += 0.1f;
+            });
+			Open.onClick.AddListener(() =>
+			{
+				Background.Hide();
+			});
+            #endregion
+        }
+
+        protected override void OnOpen(IUIData uiData = null)
+		{
+		}
+		
+		protected override void OnShow()
+		{
+		}
+		
+		protected override void OnHide()
+		{
+		}
+		
+		protected override void OnClose()
+		{
+		}
+	}
+}
