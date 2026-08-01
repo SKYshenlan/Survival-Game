@@ -51,7 +51,7 @@ namespace SurvivalGame
             ResKit.Init();
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
-            CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 1f);
+            CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
             Global.Coins.Register(_coins =>
             {
                 PlayerPrefs.SetInt(nameof(Coins), _coins);
