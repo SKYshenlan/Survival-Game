@@ -660,6 +660,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7180787289182571430, guid: eb0fd6e462a997443af88ef58eb285d8, type: 3}
+      propertyPath: mComponentName
+      value: UnityEngine.UI.Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285191290136258450, guid: eb0fd6e462a997443af88ef58eb285d8, type: 3}
+      propertyPath: mComponentName
+      value: UnityEngine.UI.Button
+      objectReference: {fileID: 0}
     - target: {fileID: 9197318764730373316, guid: eb0fd6e462a997443af88ef58eb285d8, type: 3}
       propertyPath: m_Name
       value: UIStartScreen
