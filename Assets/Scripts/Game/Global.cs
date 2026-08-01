@@ -68,14 +68,15 @@ namespace SurvivalGame
         }
         public static void Drop(GameObject go)
         {
-            //90%的掉落概率
-            var DropRate = Random.Range(0, 100.0f);
-            if (DropRate <= 90)
+            //掉落概率
+            var DropRate = Random.Range(0, 1f);
+            if (DropRate <= ExpPercent.Value)
             {
                 //生成经验         
                 DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
             }
-            else
+            DropRate = Random.Range(0, 1f);
+            if(DropRate <= CoinsPercent.Value)
             {
                 //生成金币
                 DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();

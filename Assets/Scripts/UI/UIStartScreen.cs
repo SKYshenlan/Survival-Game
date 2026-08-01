@@ -27,7 +27,7 @@ namespace GameUI
 			{
                 Global.ExpPercent.Value += 0.1f;
             });
-			Open.onClick.AddListener(() =>
+            BtnClose.onClick.AddListener(() =>
 			{
 				Background.Hide();
 			});
