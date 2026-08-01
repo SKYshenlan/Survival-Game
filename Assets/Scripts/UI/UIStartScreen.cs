@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using QFramework;
+﻿using QFramework;
 using SurvivalGame;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace GameUI
 {
@@ -29,6 +30,12 @@ namespace GameUI
 					BtnExpUp.Hide();
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			StartGame.onClick.AddListener(() =>
+			{
+				this.CloseSelf();
+                //切换场景
+                SceneManager.LoadScene("SampleScene");
+            });
 			Open.onClick.AddListener(() =>
 			{
 				Background.Show();

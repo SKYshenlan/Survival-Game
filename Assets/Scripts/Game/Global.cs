@@ -46,18 +46,18 @@ namespace SurvivalGame
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
         public static void AutoInit()
         {
-            Global.Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
-            Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
-            Global.CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
-            Global.Coins.Register(_coins =>
+            Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
+            ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
+            CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
+            Coins.Register(_coins =>
             {
                 PlayerPrefs.GetInt(nameof(Coins), _coins);
             });
-            Global.ExpPercent.Register(_expPercent =>
+            ExpPercent.Register(_expPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(ExpPercent), _expPercent);
             });
-            Global.CoinsPercent.Register(_coinsPercent =>
+            CoinsPercent.Register(_coinsPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(CoinsPercent), _coinsPercent);
             });
