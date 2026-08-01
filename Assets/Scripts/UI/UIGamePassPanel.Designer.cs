@@ -5,16 +5,19 @@ using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:78e38e00-1d44-42c2-845d-5844edf3580f
+	// Generate Id:8db1e1a8-de7d-402b-933e-3b9ab518a5a3
 	public partial class UIGamePassPanel
 	{
 		public const string Name = "UIGamePassPanel";
 		
+		[SerializeField]
+		public UnityEngine.UI.Button btn_Back;
 		
 		private UIGamePassPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
+			btn_Back = null;
 			
 			mData = null;
 		}

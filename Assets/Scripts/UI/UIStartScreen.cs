@@ -34,7 +34,7 @@ namespace GameUI
 			{
 				this.CloseSelf();
                 //切换场景
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Game");
             });
 			Open.onClick.AddListener(() =>
 			{

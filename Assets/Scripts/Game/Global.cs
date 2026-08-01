@@ -44,6 +44,8 @@ namespace SurvivalGame
         /// 金币概率
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
+        ///启动时自动执行
+        [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
@@ -66,6 +68,7 @@ namespace SurvivalGame
         {
             return Leve.Value * 5;
         }
+
         public static void Drop(GameObject go)
         {
             //掉落概率

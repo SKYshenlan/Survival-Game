@@ -1,20 +1,23 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:24d1b195-e689-4f28-b0d1-4455b0f434ab
+	// Generate Id:4683a4d4-5d8b-4ea0-b812-24823cda74b2
 	public partial class UIGameOvePanel
 	{
 		public const string Name = "UIGameOvePanel";
 		
+		[SerializeField]
+		public UnityEngine.UI.Button btn_Back;
 		
 		private UIGameOvePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
+			btn_Back = null;
 			
 			mData = null;
 		}

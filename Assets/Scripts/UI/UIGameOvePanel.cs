@@ -25,10 +25,15 @@ namespace GameUI
                     
                     this.CloseSelf();
 					//切换场景
-					SceneManager.LoadScene("SampleScene");
+					SceneManager.LoadScene("Game");
                     Global.ResetData();
                 }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+			btn_Back.onClick.AddListener(() =>
+			{
+                Global.ResetData();
+                SceneManager.LoadScene("GameStart");
+			});
         }
 		
 		protected override void OnOpen(IUIData uiData = null)
