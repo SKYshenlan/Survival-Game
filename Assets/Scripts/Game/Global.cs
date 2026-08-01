@@ -48,20 +48,19 @@ namespace SurvivalGame
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
+            ResKit.Init();
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
-            Debug.Log(nameof(Coins));
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
-            CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
-            Coins.Register(_coins =>
+            CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 1f);
+            Global.Coins.Register(_coins =>
             {
-                PlayerPrefs.GetInt(nameof(Coins), _coins);
-                Debug.Log(nameof(Coins));
+                PlayerPrefs.SetInt(nameof(Coins), _coins);
             });
-            ExpPercent.Register(_expPercent =>
+            Global.ExpPercent.Register(_expPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(ExpPercent), _expPercent);
             });
-            CoinsPercent.Register(_coinsPercent =>
+            Global.CoinsPercent.Register(_coinsPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(CoinsPercent), _coinsPercent);
             });
