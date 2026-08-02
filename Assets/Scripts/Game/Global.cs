@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace SurvivalGame
 {
-    public class Global
+    public class Global : Architecture<Global>
     {
+        #region Model
         /// <summary>
         /// 经验 主动通知UI发生改变的响应式数据容器
         /// </summary>
@@ -44,11 +45,13 @@ namespace SurvivalGame
         /// 金币概率
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
+        #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
             ResKit.Init();
+            UIKit.Root.SetResolution(1920, 1080, 1);
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
@@ -95,6 +98,11 @@ namespace SurvivalGame
             minutes.Value = 0;
             AtkSpeed.Value = 1;
             EnemyList.EnemyCount.Value = 0;
+        }
+
+        protected override void Init()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
