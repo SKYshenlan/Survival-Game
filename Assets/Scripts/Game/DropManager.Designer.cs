@@ -1,4 +1,4 @@
-// Generate Id:a0f3b248-51d3-4d54-adb3-2a346a1402a3
+// Generate Id:485ad11d-19ed-4858-b25b-275635082e21
 using UnityEngine;
 
 namespace Brotato
@@ -8,6 +8,10 @@ namespace Brotato
 		public Brotato.Exp Exp;
 		
 		public QFramework.ViewController Coins;
+		
+		public CircleCollider2D Hp;
+		
+		public Brotato.Bomb Bomb;
 		
 	}
 }

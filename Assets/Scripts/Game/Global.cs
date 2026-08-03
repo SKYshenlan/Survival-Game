@@ -46,6 +46,14 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
         /// <summary>
+        /// 炸弹概率
+        /// </summary>
+        public static BindableProperty<float> BombPercent = new BindableProperty<float>(0.1f);
+        /// <summary>
+        /// 血包概率
+        /// </summary>
+        public static BindableProperty<float> HpPercent = new BindableProperty<float>(0.3f);
+        /// <summary>
         /// 生命值
         /// </summary>
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
@@ -53,6 +61,7 @@ namespace SurvivalGame
         /// 最大生命值
         /// </summary>
         public static BindableProperty<int> MaxHp = new BindableProperty<int>(3);
+
         #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
@@ -95,21 +104,28 @@ namespace SurvivalGame
             {
                 //生成经验         
                 DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
-                return;
+
             }
             DropRate = Random.Range(0, 1f);
             if(DropRate <= CoinsPercent.Value)
             {
                 //生成金币
                 DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();
-                return;
+
             }
             DropRate = Random.Range(0, 1f);
-            if(DropRate <= CoinsPercent.Value)
+            if(DropRate <= HpPercent.Value)
             {
                 //生成血包
                 DropManager.Default.Hp.Instantiate().Position(go.Position()).Show();
-                return;
+
+            }
+            DropRate = Random.Range(0, 1f);
+            if (DropRate <= BombPercent.Value)
+            {
+                //生成炸弹
+                DropManager.Default.Bomb.Instantiate().Position(go.Position()).Show();
+
             }
         }
         public static void ResetData()

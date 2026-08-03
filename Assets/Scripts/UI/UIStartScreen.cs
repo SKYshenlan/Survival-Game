@@ -42,11 +42,19 @@ namespace GameUI
 			});
 			BtnCoinsUp.onClick.AddListener(() =>
 			{
-				Global.CoinsPercent.Value += 0.05f;
+				if (Global.Coins.Value >= 10)
+				{
+					Global.Coins.Value -= 10;
+                    Global.CoinsPercent.Value += 0.05f;
+                }
 			});
 			BtnExpUp.onClick.AddListener(() =>
 			{
-                Global.ExpPercent.Value += 0.1f;
+                if(Global.Coins.Value >= 10)
+				{
+                    Global.Coins.Value -= 10;
+                    Global.ExpPercent.Value += 0.1f;
+                }
             });
             BtnClose.onClick.AddListener(() =>
 			{

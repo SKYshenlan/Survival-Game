@@ -57,7 +57,7 @@ namespace Brotato
             HP -= Global.Atk.Value;
             AudioKit.PlaySound("hit");
             //静态管理器 延迟任务注册到全局生命周期
-            ActionKit.Delay(0.3f, () =>
+            ActionKit.Delay(0.2f, () =>
             {
                 //改变源颜色
                 Triangle.color = Color.white;
