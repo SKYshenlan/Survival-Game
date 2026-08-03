@@ -45,7 +45,14 @@ namespace SurvivalGame
         /// 金币概率
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
+        /// <summary>
+        /// 生命值
+        /// </summary>
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
+        /// <summary>
+        /// 最大生命值
+        /// </summary>
+        public static BindableProperty<int> MaxHp = new BindableProperty<int>(3);
         #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
@@ -56,15 +63,21 @@ namespace SurvivalGame
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
-            Global.Coins.Register(_coins =>
+            MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 3);
+            HP.Value = MaxHp.Value;
+            MaxHp.Register(_hp =>
+            {
+                PlayerPrefs.SetInt(nameof(MaxHp), _hp);
+            });
+            Coins.Register(_coins =>
             {
                 PlayerPrefs.SetInt(nameof(Coins), _coins);
             });
-            Global.ExpPercent.Register(_expPercent =>
+            ExpPercent.Register(_expPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(ExpPercent), _expPercent);
             });
-            Global.CoinsPercent.Register(_coinsPercent =>
+            CoinsPercent.Register(_coinsPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(CoinsPercent), _coinsPercent);
             });
@@ -82,12 +95,21 @@ namespace SurvivalGame
             {
                 //生成经验         
                 DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
+                return;
             }
             DropRate = Random.Range(0, 1f);
             if(DropRate <= CoinsPercent.Value)
             {
                 //生成金币
                 DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();
+                return;
+            }
+            DropRate = Random.Range(0, 1f);
+            if(DropRate <= CoinsPercent.Value)
+            {
+                //生成血包
+                DropManager.Default.Hp.Instantiate().Position(go.Position()).Show();
+                return;
             }
         }
         public static void ResetData()
@@ -98,7 +120,7 @@ namespace SurvivalGame
             Second.Value = 0;
             minutes.Value = 0;
             AtkSpeed.Value = 1;
-            HP.Value = 3;
+            HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
         }
 

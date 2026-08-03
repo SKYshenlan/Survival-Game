@@ -19,11 +19,20 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Triangle
-      MemberName: Triangle
+    - TypeName: Brotato.Exp
+      PathToRoot: Exp
+      MemberName: Exp
+    - TypeName: QFramework.ViewController
+      PathToRoot: Coins
+      MemberName: Coins
+    - TypeName: CircleCollider2D
+      PathToRoot: Hp
+      MemberName: Hp
+    - TypeName: Brotato.Bomb
+      PathToRoot: Bomb
+      MemberName: Bomb
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: Enemy
+    ClassName: DropManager
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

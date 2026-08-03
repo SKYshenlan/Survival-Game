@@ -45,3 +45,6 @@ TagManager:
   - name: Instantiate
     uniqueID: 3195565251
     locked: 0
+  - name: enemy
+    uniqueID: 2977817155
+    locked: 0
