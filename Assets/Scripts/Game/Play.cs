@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
 using GameUI;
+using SurvivalGame;
 
 namespace Brotato
 {
@@ -30,11 +31,19 @@ namespace Brotato
                 {
                     if (hitBox.Owner.CompareTag("Enemy"))
                     {
-                        AudioKit.PlaySound("die");
-                        //销毁
-                        this.DestroyGameObjGracefully();
-                        //打开面板
-                        UIKit.OpenPanel<UIGameOvePanel>();
+                        Global.HP.Value--;
+                        if(Global.HP.Value <= 0)
+                        {
+                            AudioKit.PlaySound("die");
+                            //销毁
+                            this.DestroyGameObjGracefully();
+                            //打开面板
+                            UIKit.OpenPanel<UIGameOvePanel>();
+                        }
+                        else
+                        {
+                            AudioKit.PlaySound("hurt");
+                        }
                     }
                 }
 

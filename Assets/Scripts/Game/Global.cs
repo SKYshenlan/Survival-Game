@@ -45,6 +45,7 @@ namespace SurvivalGame
         /// 金币概率
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
+        public static BindableProperty<int> HP = new BindableProperty<int>(3);
         #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
@@ -97,6 +98,7 @@ namespace SurvivalGame
             Second.Value = 0;
             minutes.Value = 0;
             AtkSpeed.Value = 1;
+            HP.Value = 3;
             EnemyList.EnemyCount.Value = 0;
         }
 
