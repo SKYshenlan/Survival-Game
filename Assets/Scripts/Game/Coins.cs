@@ -17,6 +17,7 @@ namespace Brotato
         {
             if (collision.GetComponent<pickupRange>())
             {
+                AudioKit.PlaySound("coin");
                 Global.Coins.Value++;
                 this.DestroyGameObjGracefully();
             }

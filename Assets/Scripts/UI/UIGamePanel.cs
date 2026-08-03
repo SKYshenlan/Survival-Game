@@ -97,6 +97,7 @@ namespace GameUI
 
         private void TextAtk()
         {
+            AudioKit.PlaySound("level_up");
             atk.text = $"攻击「{Global.Atk.Value.ToString("0.##")}」";
         }
 

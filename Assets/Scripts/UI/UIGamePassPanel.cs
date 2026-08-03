@@ -33,6 +33,7 @@ namespace GameUI
                 Global.ResetData();
                 SceneManager.LoadScene("GameStart");
             });
+			AudioKit.PlaySound("game_pass");
         }
 		
 		protected override void OnOpen(IUIData uiData = null)

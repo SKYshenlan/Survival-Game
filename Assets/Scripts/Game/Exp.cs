@@ -21,6 +21,7 @@ namespace Brotato
         {
 			if (collision.GetComponent<pickupRange>())
 			{
+				AudioKit.PlaySound("exp");
                 Global.Exp.Value++;
                 this.DestroyGameObjGracefully();
             }

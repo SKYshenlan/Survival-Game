@@ -30,6 +30,7 @@ namespace Brotato
                 {
                     if (hitBox.Owner.CompareTag("Enemy"))
                     {
+                        AudioKit.PlaySound("die");
                         //销毁
                         this.DestroyGameObjGracefully();
                         //打开面板
