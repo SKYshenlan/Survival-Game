@@ -70,6 +70,10 @@ namespace GameUI
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
+            Global.HP.RegisterWithInitValue(_hp =>
+            {
+                HP.text = $"生命值「{_hp}」";
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
             #endregion
             //提升攻击力
             BinUp.onClick.AddListener(() =>

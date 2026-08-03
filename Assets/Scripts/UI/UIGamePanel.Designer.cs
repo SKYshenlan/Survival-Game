@@ -5,7 +5,7 @@ using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:7d3c9944-d881-40f5-818a-8733ac524b82
+	// Generate Id:eb385be1-37db-457f-9131-3dbef1227040
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -16,6 +16,8 @@ namespace GameUI
 		public UnityEngine.UI.Text time;
 		[SerializeField]
 		public UnityEngine.UI.Text leve;
+		[SerializeField]
+		public UnityEngine.UI.Text HP;
 		[SerializeField]
 		public UnityEngine.UI.Text enemyCount;
 		[SerializeField]
@@ -36,6 +38,7 @@ namespace GameUI
 			xp = null;
 			time = null;
 			leve = null;
+			HP = null;
 			enemyCount = null;
 			atk = null;
 			coins = null;
