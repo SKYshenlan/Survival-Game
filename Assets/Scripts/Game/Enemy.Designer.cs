@@ -1,4 +1,4 @@
-﻿// Generate Id:1270bf31-79a6-4e37-874a-9b467540713b
+// Generate Id:28ab5820-dbd6-4694-a61f-7ef0f3451fdf
 using UnityEngine;
 
 namespace Brotato
@@ -6,6 +6,8 @@ namespace Brotato
 	public partial class Enemy
 	{
 		public SpriteRenderer Triangle;
+		
+		public UnityEngine.Rigidbody2D SelfRigidbody2D;
 		
 	}
 }

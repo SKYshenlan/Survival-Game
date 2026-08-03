@@ -19,14 +19,18 @@ namespace Brotato
             EnemyList.EnemyCount.Value++;
 
         }
-        private void Update()
+        private void FixedUpdate()
         {
             //向量的长度强制变成 1
             if (Play.Defaulf)
             {
                 var dir = (Play.Defaulf.transform.position - transform.position).normalized;
                 //敌人平滑移动
-                transform.Translate(dir * Time.deltaTime * MoveSeppd);
+                SelfRigidbody2D.velocity = dir * MoveSeppd;
+            }
+            else
+            {
+                SelfRigidbody2D.velocity = Vector2.zero;
             }
             if (HP <= 0)
             {
@@ -37,6 +41,10 @@ namespace Brotato
                 //消除对象
                 this.DestroyGameObjGracefully();
             }
+        }
+        private void Update()
+        {
+            
         }
         /// <summary>
         /// 掉血逻辑
