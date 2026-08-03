@@ -11,6 +11,10 @@ namespace Brotato
 			// Code Here
 
 		}
+        /// <summary>
+        /// 对所有敌人造成伤害
+        /// </summary>
+        /// <param name="collision"></param>
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.GetComponent<pickupRange>())

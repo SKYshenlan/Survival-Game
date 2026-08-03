@@ -54,6 +54,10 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> HpPercent = new BindableProperty<float>(0.3f);
         /// <summary>
+        /// 磁铁概率
+        /// </summary>
+        public static BindableProperty<float> MagnetPercent = new BindableProperty<float>(0.3f);
+        /// <summary>
         /// 生命值
         /// </summary>
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
@@ -70,9 +74,12 @@ namespace SurvivalGame
             ResKit.Init();
             UIKit.Root.SetResolution(1920, 1080, 1);
             Coins.Value = PlayerPrefs.GetInt(nameof(Coins), 0);
+            MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 3);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
-            MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 3);
+            HpPercent.Value = PlayerPrefs.GetFloat(nameof(HpPercent), 0.3f);
+            MagnetPercent.Value = PlayerPrefs.GetFloat(nameof(MagnetPercent), 0.3f);
+            BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
             HP.Value = MaxHp.Value;
             MaxHp.Register(_hp =>
             {
@@ -89,6 +96,18 @@ namespace SurvivalGame
             CoinsPercent.Register(_coinsPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(CoinsPercent), _coinsPercent);
+            });
+            HpPercent.Register(_hpPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(HpPercent), _hpPercent);
+            });
+            MagnetPercent.Register(_magnetPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(MagnetPercent), _magnetPercent);
+            });
+            BombPercent.Register(_bombPercent =>
+            {
+                PlayerPrefs.SetFloat(nameof(BombPercent), _bombPercent);
             });
         }
         public static int GetExp()
@@ -125,6 +144,13 @@ namespace SurvivalGame
             {
                 //生成炸弹
                 DropManager.Default.Bomb.Instantiate().Position(go.Position()).Show();
+
+            }
+            DropRate = Random.Range(0, 1f);
+            if (DropRate <= MagnetPercent.Value)
+            {
+                //生成磁铁
+                DropManager.Default.GetAllExp.Instantiate().Position(go.Position()).Show();
 
             }
         }

@@ -31,6 +31,9 @@ MonoBehaviour:
     - TypeName: Brotato.Bomb
       PathToRoot: Bomb
       MemberName: Bomb
+    - TypeName: Brotato.GetAllExp
+      PathToRoot: GetAllExp
+      MemberName: GetAllExp
     ScriptsFolder: Assets/Scripts/Game
     ClassName: DropManager
     Namespace: Brotato
