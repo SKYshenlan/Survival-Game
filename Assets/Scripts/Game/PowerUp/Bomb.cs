@@ -25,6 +25,7 @@ namespace Brotato
                     enemy.Hide(enemy.HP);
                 }
                 this.DestroyGameObjGracefully();
+                CameraMove.Shake();
             }
 
         }
