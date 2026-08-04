@@ -54,7 +54,8 @@ namespace Brotato
             if (_flag) return;
             //更改敌人颜色表示受伤
             Triangle.color = Color.red;
-            HP -= Global.Atk.Value;
+            FloatingTextController.Play(transform.position+Vector3.up,value);
+            HP -= value;
             AudioKit.PlaySound("hit");
             //静态管理器 延迟任务注册到全局生命周期
             ActionKit.Delay(0.2f, () =>
