@@ -18,24 +18,9 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: Brotato.Exp
-      PathToRoot: Exp
-      MemberName: Exp
-    - TypeName: QFramework.ViewController
-      PathToRoot: Coins
-      MemberName: Coins
-    - TypeName: CircleCollider2D
-      PathToRoot: Hp
-      MemberName: Hp
-    - TypeName: Brotato.Bomb
-      PathToRoot: Bomb
-      MemberName: Bomb
-    - TypeName: Brotato.GetAllExp
-      PathToRoot: GetAllExp
-      MemberName: GetAllExp
+    BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: DropManager
+    ClassName: CameraMove
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
