@@ -168,7 +168,7 @@ namespace SurvivalGame
 
         protected override void Init()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }
