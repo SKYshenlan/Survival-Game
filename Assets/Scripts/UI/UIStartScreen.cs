@@ -23,12 +23,14 @@ namespace GameUI
 				{
 					BtnCoinsUp.Show();
 					BtnExpUp.Show();
+                    BtnHpUp.Show();
                 }
 				else
 				{
 					BtnCoinsUp.Hide();
 					BtnExpUp.Hide();
-				}
+                    BtnHpUp.Hide();
+                }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			StartGame.onClick.AddListener(() =>
 			{
@@ -45,15 +47,29 @@ namespace GameUI
 				if (Global.Coins.Value >= 10)
 				{
 					Global.Coins.Value -= 10;
+					//增加金币概率
                     Global.CoinsPercent.Value += 0.05f;
+					Sound();
                 }
-			});
+            });
 			BtnExpUp.onClick.AddListener(() =>
 			{
                 if(Global.Coins.Value >= 10)
 				{
                     Global.Coins.Value -= 10;
-                    Global.ExpPercent.Value += 0.1f;
+                    //增加经验概率
+                    Global.ExpPercent.Value = 0.1f;
+					Sound();
+                }
+            });
+            BtnHpUp.onClick.AddListener(() =>
+			{
+                if(Global.Coins.Value >= 10)
+				{
+                    Global.Coins.Value -= 10;
+                    //增加血包概率
+                    Global.HpPercent.Value = 0.09f;
+					Sound();
                 }
             });
             BtnClose.onClick.AddListener(() =>
@@ -62,7 +78,10 @@ namespace GameUI
 			});
             #endregion
         }
-
+		private void Sound()
+		{
+			AudioKit.PlaySound("LvUp");
+		}
         protected override void OnOpen(IUIData uiData = null)
 		{
 		}
