@@ -1,10 +1,6 @@
-﻿using System;
-using GameUI;
-using QFramework;
+﻿using QFramework;
 using SurvivalGame;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using static UnityEditor.Progress;
 
 namespace Brotato
 {

@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3466218069
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uigameovepanel_prefab
+      Dependencies: {}
+    Info_1:
+      Name: uigamepasspanel_prefab
+      Dependencies: {}
+    Info_2:
+      Name: uigamepanel_prefab
+      Dependencies: {}
+    Info_3:
+      Name: uistartscreen_prefab
+      Dependencies: {}
+    Info_4:
+      Name: sfx
+      Dependencies: {}

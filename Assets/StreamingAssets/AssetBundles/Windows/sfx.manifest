@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2130044728
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f1dad8546f2133eefd31953695e7e846
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f1dad8546f2133eefd31953695e7e846
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/Sound/Sfx/get_all_exp.wav
+- Assets/Art/Sound/Sfx/hurt.wav
+- Assets/Art/Sound/Sfx/die.wav
+- Assets/Art/Sound/Sfx/game_pass.wav
+- Assets/Art/Sound/Sfx/coin.wav
+- Assets/Art/Sound/Sfx/bomb.wav
+- Assets/Art/Sound/Sfx/exp.wav
+- Assets/Art/Sound/Sfx/level_up.wav
+- Assets/Art/Sound/Sfx/hit.wav
+- Assets/Art/Sound/Sfx/LvUp.ogg
+- Assets/Art/Sound/Sfx/hp.wav
+Dependencies: []
