@@ -5,7 +5,7 @@ using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:acb3fc50-94f6-48f8-860e-dcae640f24fd
+	// Generate Id:3828986f-b61f-4772-bda1-10ad368d32bd
 	public partial class UIStartScreen
 	{
 		public const string Name = "UIStartScreen";
@@ -15,6 +15,8 @@ namespace GameUI
 		[SerializeField]
 		public UnityEngine.UI.Button StartGame;
 		[SerializeField]
+		public UnityEngine.UI.Button Reset;
+		[SerializeField]
 		public Background Background;
 		
 		private UIStartScreenData mPrivateData = null;
@@ -23,6 +25,7 @@ namespace GameUI
 		{
 			Open = null;
 			StartGame = null;
+			Reset = null;
 			Background = null;
 			
 			mData = null;

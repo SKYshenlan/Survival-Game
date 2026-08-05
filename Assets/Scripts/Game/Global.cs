@@ -165,6 +165,17 @@ namespace SurvivalGame
             HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
         }
+        public static void Reset()
+        {
+            Debug.Log("a");
+            Coins.Value = 0;
+            ExpPercent.Value = 0.3f;//30%
+            CoinsPercent.Value = 0.05f;//5%
+            BombPercent.Value = 0.1f;//10%
+            HpPercent.Value = 0.3f;//30%
+            MagnetPercent.Value = 0.3f;//30%
+
+        }
 
         protected override void Init()
         {

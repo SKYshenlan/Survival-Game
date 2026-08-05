@@ -21,6 +21,10 @@ namespace GameUI
                 //切换场景
                 SceneManager.LoadScene("Game");
             });
+			Reset.onClick.AddListener(() =>
+			{
+				Global.Reset();
+			});
             Open.onClick.AddListener(() =>
             {
                 Background.Show();

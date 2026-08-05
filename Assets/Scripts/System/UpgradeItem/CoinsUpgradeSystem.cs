@@ -23,6 +23,26 @@ namespace Brotato
                 //增加金币概率
                 Global.CoinsPercent.Value += 0.05f;
             }));
+            Item.Add(new CoinsUpgradeItem()
+            .WithKey("exp_percent")
+            .WithDes("提升经验掉落概率")
+            .WithPrice(5)
+            .OnUpgrade((Item) =>
+            {
+                Global.Coins.Value -= Item.Price;
+                //增加经验概率
+                Global.ExpPercent.Value += 0.05f;
+            }));
+            Item.Add(new CoinsUpgradeItem()
+            .WithKey("hp_percent")
+            .WithDes("提升血包掉落概率")
+            .WithPrice(11)
+            .OnUpgrade((Item) =>
+            {
+                Global.Coins.Value -= Item.Price;
+                //增加血包概率
+                Global.HpPercent.Value += 0.05f;
+            }));
         }
         public void Say()
         {
