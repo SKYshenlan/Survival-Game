@@ -8,12 +8,16 @@ namespace Brotato
 {
     public class CoinsUpgradeItem
     {
-        public string Key {  get; set; }
-        public string Des {  get; set; }
-        private Action mOnUpgrade;
+        public string Key {  get;private set; }
+        public string Des {  get;private set; }
+        /// <summary>
+        /// 价格
+        /// </summary>
+        public int Price { get; set; }
+        private Action<CoinsUpgradeItem> mOnUpgrade;
         public void Upgrade()
         {
-            mOnUpgrade?.Invoke();
+            mOnUpgrade?.Invoke(this);
         }
         public CoinsUpgradeItem WithKey(string key)
         {
@@ -25,7 +29,12 @@ namespace Brotato
             Des = des;
             return this;
         }
-        public CoinsUpgradeItem OnUpgrade(Action onUpgrade)
+        public CoinsUpgradeItem WithPrice(int price)
+        {
+            Price = price;
+            return this;
+        }
+        public CoinsUpgradeItem OnUpgrade(Action<CoinsUpgradeItem> onUpgrade)
         {
             mOnUpgrade = onUpgrade;
             return this;

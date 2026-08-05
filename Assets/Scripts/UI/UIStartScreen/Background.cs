@@ -1,9 +1,6 @@
 ﻿/****************************************************************************
  * 2026.8 深蓝
  ****************************************************************************/
-
-using System;
-using System.Collections.Generic;
 using Brotato;
 using QFramework;
 using SurvivalGame;
@@ -17,13 +14,15 @@ namespace GameUI
 	{
 		private void Awake()
 		{
-            UpgradeButton.Hide();
+            this.GetSystem<CoinsUpgradeSystem>().Say();
+            //UpgradeButton.Hide();
             foreach (var item in this.GetSystem<CoinsUpgradeSystem>().Item)
             {
                 var itemCache = item;
                 //生成按钮在面板
                 UpgradeButton.InstantiateWithParent(UpgradePanel).Self(self =>{
-                    (self.targetGraphic as Text).text = item.Des;
+                    self.GetComponentInChildren<Text>().text = item.Des;
+                    Debug.Log(item.Des);
                     self.onClick.AddListener(() =>
                     {
                         itemCache.Upgrade();
@@ -36,19 +35,7 @@ namespace GameUI
             #region 按钮
             Global.Coins.RegisterWithInitValue(_coins =>
             {
-                coins.text = $"金币「{_coins}」";
-                if (_coins >= 5)
-                {
-                    BtnCoinsUp.Show();
-                    BtnExpUp.Show();
-                    BtnHpUp.Show();
-                }
-                else
-                {
-                    BtnCoinsUp.Hide();
-                    BtnExpUp.Hide();
-                    BtnHpUp.Hide();
-                }
+
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
             BtnCoinsUp.onClick.AddListener(() =>
             {

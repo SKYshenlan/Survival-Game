@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QFramework;
+using SurvivalGame;
 
 namespace Brotato
 {
@@ -13,11 +14,14 @@ namespace Brotato
         protected override void OnInit()
         {
             Item.Add(new CoinsUpgradeItem()
-            .WithKey("aaa")
-            .WithDes("")
-            .OnUpgrade(() =>
+            .WithKey("coins_percent")
+            .WithDes("提升金币掉落概率")
+            .WithPrice(10)
+            .OnUpgrade((Item) =>
             {
-
+                Global.Coins.Value -= Item.Price;
+                //增加金币概率
+                Global.CoinsPercent.Value += 0.05f;
             }));
         }
         public void Say()
