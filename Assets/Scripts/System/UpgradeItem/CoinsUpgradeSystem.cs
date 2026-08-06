@@ -45,6 +45,10 @@ namespace Brotato
                 //增加金币概率
                 Global.CoinsPercent.Value += 0.05f;
             }));
+            arrLv1.OnChanged.Register(() =>
+            {
+                arrLv2.OnChanged.Trigger();
+            });
             var arrLv3 = Add(new CoinsUpgradeItem()
             .WithKey("coins_percent_Lv3")
             .WithDes("提升金币掉落Lv3")
@@ -56,6 +60,11 @@ namespace Brotato
                 //增加金币概率
                 Global.CoinsPercent.Value += 0.05f;
             }));
+            //注册回调lv2启动自动触发
+            arrLv2.OnChanged.Register(() =>
+            {
+                arrLv3.OnChanged.Trigger();
+            });
             Item.Add(new CoinsUpgradeItem()
             .WithKey("exp_percent")
             .WithDes("提升经验掉落概率")

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QFramework;
 
 namespace Brotato
 {
@@ -11,6 +12,7 @@ namespace Brotato
     /// </summary>
     public class CoinsUpgradeItem
     {
+        public EasyEvent OnChanged = new EasyEvent();
         public string Key {  get;private set; }
         public string Des {  get;private set; }
         /// <summary>
@@ -35,6 +37,7 @@ namespace Brotato
         {
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
+            OnChanged.Trigger();
             CoinsUpgradeSystem.OnCoinsUpgradeSystemChanged.Trigger();
         }
         public CoinsUpgradeItem WithKey(string key)
