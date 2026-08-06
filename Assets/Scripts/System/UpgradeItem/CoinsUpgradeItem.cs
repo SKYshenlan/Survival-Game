@@ -10,14 +10,26 @@ namespace Brotato
     {
         public string Key {  get;private set; }
         public string Des {  get;private set; }
+        public bool UpgradeFinish { get; private set; } = false;
         /// <summary>
         /// 价格
         /// </summary>
         public int Price { get; set; }
+        public bool ConditionCheck()
+        {
+            if (mCondtion != null)
+            {
+                return ! UpgradeFinish && mCondtion.Invoke(this);
+            }
+            return !UpgradeFinish;
+        }
+        private Func<CoinsUpgradeItem, bool> mCondtion;
         private Action<CoinsUpgradeItem> mOnUpgrade;
         public void Upgrade()
         {
             mOnUpgrade?.Invoke(this);
+            UpgradeFinish = true;
+            CoinsUpgradeSystem.OnCoinsUpgradeSystemChanged.Trigger();
         }
         public CoinsUpgradeItem WithKey(string key)
         {
@@ -39,6 +51,10 @@ namespace Brotato
             mOnUpgrade = onUpgrade;
             return this;
         }
-
+        public CoinsUpgradeItem Condtion(Func<CoinsUpgradeItem,bool> condtion)
+        {
+            mCondtion = condtion;
+            return this;
+        }
     }
 }

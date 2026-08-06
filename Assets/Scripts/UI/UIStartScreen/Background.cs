@@ -1,6 +1,7 @@
 ﻿/****************************************************************************
  * 2026.8 深蓝
  ****************************************************************************/
+using System.Linq;
 using Brotato;
 using QFramework;
 using SurvivalGame;
@@ -12,15 +13,14 @@ namespace GameUI
 {
     public partial class Background : UIElement, IController
 	{
-		private void Awake()
-		{
-            this.GetSystem<CoinsUpgradeSystem>().Say();
-            //UpgradeButton.Hide();
-            foreach (var item in this.GetSystem<CoinsUpgradeSystem>().Item)
+        void Refresh()
+        {
+            UpgradePanel.DestroyChildren();
+            foreach (var item in this.GetSystem<CoinsUpgradeSystem>().Item.Where(item => item.ConditionCheck()))
             {
                 var itemCache = item;
                 //生成按钮在面板
-                UpgradeButton.InstantiateWithParent(UpgradePanel).Self(self =>{
+                UpgradeButton.InstantiateWithParent(UpgradePanel).Self(self => {
                     self.GetComponentInChildren<Text>().text = item.Des;
                     Debug.Log(item.Des);
                     self.onClick.AddListener(() =>
@@ -31,7 +31,7 @@ namespace GameUI
                     var selfBut = self;
                     Global.Coins.RegisterWithInitValue(_coins =>
                     {
-                        if(_coins >= item.Price)
+                        if (_coins >= item.Price)
                         {
                             selfBut.interactable = true;
                         }
@@ -42,6 +42,15 @@ namespace GameUI
                     }).UnRegisterWhenGameObjectDestroyed(gameObject);
                 }).Show();
             }
+        }
+		private void Awake()
+		{
+            UpgradeButton.Hide();
+            CoinsUpgradeSystem.OnCoinsUpgradeSystemChanged.Register(() =>
+            {
+                Refresh();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            Refresh();
             #region 按钮
             Global.Coins.RegisterWithInitValue(_coins =>
             {
