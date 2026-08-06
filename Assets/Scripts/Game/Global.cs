@@ -165,6 +165,9 @@ namespace SurvivalGame
             HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
         }
+        /// <summary>
+        /// 重置
+        /// </summary>
         public static void Reset()
         {
             Coins.Value = 0;
