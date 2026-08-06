@@ -61,7 +61,7 @@ namespace Brotato
                 {
                     foreach (var item in Key)
                     {
-                        //调试面板
+                        //调试面板 
                         GUILayout.Label(item + ":" + PlayerPrefs.GetInt(item));
                         GUILayout.Label(item + ":" + PlayerPrefs.GetString(item));
                         GUILayout.Label(item + ":" + PlayerPrefs.GetFloat(item));
