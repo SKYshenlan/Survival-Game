@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Brotato
 {
+    /// <summary>
+    /// 升级物品
+    /// </summary>
     public class CoinsUpgradeItem
     {
         public string Key {  get;private set; }

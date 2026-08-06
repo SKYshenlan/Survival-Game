@@ -9,6 +9,9 @@ using Unity.Burst.Intrinsics;
 
 namespace Brotato
 {
+    /// <summary>
+    /// 升级系统
+    /// </summary>
     public class CoinsUpgradeSystem : AbstractSystem
     {
         public List<CoinsUpgradeItem> Item {  get;} = new List<CoinsUpgradeItem>();
