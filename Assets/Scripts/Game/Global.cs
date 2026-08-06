@@ -77,8 +77,8 @@ namespace SurvivalGame
             MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 3);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
-            HpPercent.Value = PlayerPrefs.GetFloat(nameof(HpPercent), 0.3f);
-            MagnetPercent.Value = PlayerPrefs.GetFloat(nameof(MagnetPercent), 0.3f);
+            HpPercent.Value = PlayerPrefs.GetFloat(nameof(HpPercent), 0.15f);
+            MagnetPercent.Value = PlayerPrefs.GetFloat(nameof(MagnetPercent), 0.15f);
             BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
             HP.Value = MaxHp.Value;
             MaxHp.Register(_hp =>
@@ -123,35 +123,35 @@ namespace SurvivalGame
             {
                 //生成经验         
                 DropManager.Default.Exp.Instantiate().Position(go.Position()).Show();
-
+                return;
             }
             DropRate = Random.Range(0, 1f);
             if(DropRate <= CoinsPercent.Value)
             {
                 //生成金币
                 DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();
-
+                return;
             }
             DropRate = Random.Range(0, 1f);
             if(DropRate <= HpPercent.Value)
             {
                 //生成血包
                 DropManager.Default.Hp.Instantiate().Position(go.Position()).Show();
-
+                return;
             }
             DropRate = Random.Range(0, 1f);
             if (DropRate <= BombPercent.Value)
             {
                 //生成炸弹
                 DropManager.Default.Bomb.Instantiate().Position(go.Position()).Show();
-
+                return;
             }
             DropRate = Random.Range(0, 1f);
             if (DropRate <= MagnetPercent.Value)
             {
                 //生成磁铁
                 DropManager.Default.GetAllExp.Instantiate().Position(go.Position()).Show();
-
+                return;
             }
         }
         public static void ResetData()
@@ -172,8 +172,8 @@ namespace SurvivalGame
             ExpPercent.Value = 0.3f;//30%
             CoinsPercent.Value = 0.05f;//5%
             BombPercent.Value = 0.1f;//10%
-            HpPercent.Value = 0.3f;//30%
-            MagnetPercent.Value = 0.3f;//30%
+            HpPercent.Value = 0.15f;//15%
+            MagnetPercent.Value = 0.15f;//15%
 
         }
 
