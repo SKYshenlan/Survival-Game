@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using QFramework;
 using SurvivalGame;
 using Unity.Burst.Intrinsics;
+using UnityEngine;
 
 namespace Brotato
 {
     /// <summary>
     /// 升级系统
     /// </summary>
-    public class CoinsUpgradeSystem : AbstractSystem
+    public class CoinsUpgradeSystem : AbstractSystem, ICanSave
     {
         public List<CoinsUpgradeItem> Item {  get;} = new List<CoinsUpgradeItem>();
         public static EasyEvent OnCoinsUpgradeSystemChanged = new EasyEvent();
@@ -75,6 +76,35 @@ namespace Brotato
                 //增加血包概率
                 Global.HpPercent.Value += 0.05f;
             }));
+            Load();
+            OnCoinsUpgradeSystemChanged.Register(() =>
+            {
+                Save();
+            });
+        }
+        /// <summary>
+        /// 储存
+        /// </summary>
+        public void Save()
+        {
+            var System = this.GetSystem<SaveSystem>();
+            foreach (var item in Item)
+            {
+                //存入数据
+                System.SaveBool(item.Key,item.UpgradeFinish);
+            }
+        }
+        /// <summary>
+        /// 读取
+        /// </summary>
+        public void Load()
+        {
+            var System = this.GetSystem<SaveSystem>();
+            foreach (var item in Item)
+            {
+                //读取
+                item.UpgradeFinish = System.LoadBool(item.Key,false);
+            }
         }
     }
 }

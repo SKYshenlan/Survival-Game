@@ -13,7 +13,10 @@ namespace Brotato
     {
         public string Key {  get;private set; }
         public string Des {  get;private set; }
-        public bool UpgradeFinish { get; private set; } = false;
+        /// <summary>
+        /// 是否到达升级上限
+        /// </summary>
+        public bool UpgradeFinish { get; set; } = false;
         /// <summary>
         /// 价格
         /// </summary>
