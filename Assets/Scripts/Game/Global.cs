@@ -176,7 +176,6 @@ namespace SurvivalGame
             BombPercent.Value = 0.1f;//10%
             HpPercent.Value = 0.15f;//15%
             MagnetPercent.Value = 0.15f;//15%
-
         }
 
         protected override void Init()
