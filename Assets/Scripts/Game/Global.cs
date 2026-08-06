@@ -77,6 +77,7 @@ namespace SurvivalGame
             MaxHp.Value = PlayerPrefs.GetInt(nameof(MaxHp), 3);
             ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent), 0.3f);
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
+            Debug.Log(CoinsPercent.Value);
             HpPercent.Value = PlayerPrefs.GetFloat(nameof(HpPercent), 0.15f);
             MagnetPercent.Value = PlayerPrefs.GetFloat(nameof(MagnetPercent), 0.15f);
             BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);

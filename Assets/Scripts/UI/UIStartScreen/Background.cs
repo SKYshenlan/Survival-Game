@@ -35,7 +35,7 @@ namespace GameUI
                         {
                             selfBut.interactable = true;
                         }
-                        else
+                        else if(selfBut != null)
                         {
                             selfBut.interactable = false;
                         }
