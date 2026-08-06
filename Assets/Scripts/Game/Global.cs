@@ -183,6 +183,7 @@ namespace SurvivalGame
             //注册模块
             this.RegisterSystem(new SaveSystem());
             this.RegisterSystem(new CoinsUpgradeSystem());
+            this.RegisterSystem(new ExpUpgradeSystem());
         }
     }
 }
