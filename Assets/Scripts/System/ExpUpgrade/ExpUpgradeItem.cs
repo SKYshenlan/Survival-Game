@@ -13,6 +13,9 @@ namespace Brotato
         public EasyEvent OnChanged = new EasyEvent();
         public string Key { get; private set; }
         public string Des { get; private set; }
+        public int MaxLeve { get; private set; }
+        public int CurrentLeve { get; private set; } = 0;
+        public BindableProperty<bool> Visible = new BindableProperty<bool>();
         /// <summary>
         /// 是否到达升级上限
         /// </summary>
@@ -21,20 +24,16 @@ namespace Brotato
         /// 价格
         /// </summary>
         public int Price { get; set; }
-        public bool ConditionCheck()
-        {
-            if (mCondtion != null)
-            {
-                return !UpgradeFinish && mCondtion.Invoke(this);
-            }
-            return !UpgradeFinish;
-        }
         private Func<ExpUpgradeItem, bool> mCondtion;
-        private Action<ExpUpgradeItem> mOnUpgrade;
+        private Action<ExpUpgradeItem,int> mOnUpgrade;
         public void Upgrade()
         {
-            mOnUpgrade?.Invoke(this);
-            UpgradeFinish = true;
+            CurrentLeve++;
+            mOnUpgrade?.Invoke(this,CurrentLeve);
+            if (CurrentLeve >= 10)
+            {
+                UpgradeFinish = true;
+            }
             OnChanged.Trigger();
         }
         public ExpUpgradeItem WithKey(string key)
@@ -52,7 +51,12 @@ namespace Brotato
             Price = price;
             return this;
         }
-        public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem> onUpgrade)
+        public ExpUpgradeItem WithMax(int leve)
+        {
+            MaxLeve = leve;
+            return this;
+        }
+        public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem,int> onUpgrade)
         {
             mOnUpgrade = onUpgrade;
             return this;

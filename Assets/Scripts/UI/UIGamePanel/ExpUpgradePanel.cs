@@ -31,9 +31,9 @@ namespace GameUI
                         AudioKit.PlaySound("LvUp");
                     });
                     var selfBut = self;
-                    item.OnChanged.Register(() =>
+                    itemCache.Visible.RegisterWithInitValue(visible =>
                     {
-                        if (itemCache.ConditionCheck())
+                        if (visible)
                         {
                             selfBut.Show();
                         }
@@ -41,15 +41,8 @@ namespace GameUI
                         {
                             selfBut.Hide();
                         }
+
                     }).UnRegisterWhenGameObjectDestroyed(selfBut);
-                    if (itemCache.ConditionCheck())
-                    {
-                        selfBut.Show();
-                    }
-                    else
-                    {
-                        selfBut.Hide();
-                    }
                 });
             }
         }
