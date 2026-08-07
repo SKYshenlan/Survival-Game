@@ -36,25 +36,28 @@ namespace GameUI
 
             }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
             //注册并执行回调
+            Global.Leve.RegisterWithInitValue(Leve =>
+            {
+                leve.text = $"等级「{Leve}」";
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
+            Global.Leve.Register(lv =>
+            {
+                Debug.Log("a");
+                Time.timeScale = 0;
+                ExpUpgrade.Show();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            //注册并执行回调
             Global.Exp.RegisterWithInitValue(exp =>
             {
                 xp.text = $"经验值「{exp}/{Global.GetExp()}」";
                 if (exp >= Global.GetExp())
                 {
+                    Debug.Log("进入升级分支");
                     int LV = Global.Leve.Value;
                     Global.Exp.Value = 0;
                     Global.Leve.Value++;
-                    if (LV != Global.Leve.Value)
-                    {
-                        Time.timeScale = 0;
-                        ExpUpgrade.Show();
-                    }
+                    //Global.Interface.GetSystem<ExpUpgradeSystem>().Roll();
                 }
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
-                                                             //注册并执行回调
-            Global.Leve.RegisterWithInitValue(Leve =>
-            {
-                leve.text = $"等级「{Leve}」";
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
             Global.Coins.RegisterWithInitValue(_coins =>
             {

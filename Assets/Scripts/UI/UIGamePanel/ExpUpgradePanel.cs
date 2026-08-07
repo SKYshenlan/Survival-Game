@@ -35,6 +35,7 @@ namespace GameUI
                     {
                         if (visible)
                         {
+                            self.GetComponentInChildren<Text>().text = item.Des;
                             selfBut.Show();
                         }
                         else
@@ -43,6 +44,10 @@ namespace GameUI
                         }
 
                     }).UnRegisterWhenGameObjectDestroyed(selfBut);
+                    itemCache.CurrentLeve.RegisterWithInitValue(lv =>
+                    {
+                        selfBut.GetComponentInChildren<Text>().text = item.Des;
+                    }).UnRegisterWhenGameObjectDestroyed(gameObject);
                 });
             }
         }
