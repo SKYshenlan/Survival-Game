@@ -19,11 +19,11 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: BoxCollider2D
-      PathToRoot: Axe
-      MemberName: Axe
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: SimpleAxe
+    - TypeName: SpriteRenderer
+      PathToRoot: Knife
+      MemberName: Knife
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: SimpleKnife
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
