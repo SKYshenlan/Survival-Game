@@ -36,7 +36,6 @@ namespace Brotato
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
             OnChanged.Trigger();
-            CoinsUpgradeSystem.OnCoinsUpgradeSystemChanged.Trigger();
         }
         public ExpUpgradeItem WithKey(string key)
         {
