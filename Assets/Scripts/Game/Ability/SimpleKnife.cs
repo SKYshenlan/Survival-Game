@@ -57,7 +57,6 @@ namespace Brotato
                                 }
                             }).UnRegisterWhenGameObjectDestroyed(self);
                         });
-                    en.Hide(Global.Atk.Value);
                 }
             }
         }
