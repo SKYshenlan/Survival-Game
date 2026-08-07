@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Brotato;
 using QFramework;
+using Unity.Mathematics;
 
 namespace Brotato
 {
     internal class ExpUpgradeItem
     {
-        public EasyEvent OnChanged = new EasyEvent();
         public string Key { get; private set; }
-        public string Des { get; private set; }
+        public string Des => mDesFun(CurrentLeve.Value);
         public int MaxLeve { get; private set; }
-        public int CurrentLeve { get; private set; } = 0;
+        public BindableProperty<int> CurrentLeve = new BindableProperty<int>(1);
         public BindableProperty<bool> Visible = new BindableProperty<bool>();
+        private Func<int, string> mDesFun;
         /// <summary>
         /// 是否到达升级上限
         /// </summary>
@@ -24,26 +25,25 @@ namespace Brotato
         /// 价格
         /// </summary>
         public int Price { get; set; }
-        private Func<ExpUpgradeItem, bool> mCondtion;
+
         private Action<ExpUpgradeItem,int> mOnUpgrade;
         public void Upgrade()
         {
-            CurrentLeve++;
-            mOnUpgrade?.Invoke(this,CurrentLeve);
-            if (CurrentLeve >= 10)
+            CurrentLeve.Value++;
+            mOnUpgrade?.Invoke(this,CurrentLeve.Value);
+            if (CurrentLeve.Value > 10)
             {
                 UpgradeFinish = true;
             }
-            OnChanged.Trigger();
         }
         public ExpUpgradeItem WithKey(string key)
         {
             Key = key;
             return this;
         }
-        public ExpUpgradeItem WithDes(string des)
+        public ExpUpgradeItem WithDes(Func<int,string> des)
         {
-            Des = des;
+            mDesFun = des;
             return this;
         }
         public ExpUpgradeItem WithPrice(int price)
@@ -59,11 +59,6 @@ namespace Brotato
         public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem,int> onUpgrade)
         {
             mOnUpgrade = onUpgrade;
-            return this;
-        }
-        public ExpUpgradeItem Condtion(Func<ExpUpgradeItem, bool> condtion)
-        {
-            mCondtion = condtion;
             return this;
         }
     }

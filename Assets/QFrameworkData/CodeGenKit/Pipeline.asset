@@ -18,12 +18,9 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: RectTransform
-      PathToRoot: FloatingText
-      MemberName: FloatingText
+    BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: FloatingTextController
+    ClassName: HurtBox
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
