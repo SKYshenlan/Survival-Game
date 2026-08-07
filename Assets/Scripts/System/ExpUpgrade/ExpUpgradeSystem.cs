@@ -19,11 +19,20 @@ namespace Brotato
         }
         protected override void OnInit()
         {
+            ResetData();
+            Global.Leve.Register(lv =>
+            {
+                Roll();
+            });
+        }
+        public void ResetData()
+        {
+            Item.Clear();
             var atkLv1 = Add(new ExpUpgradeItem()
-                .WithKey("atk_damage_lv1")
-                .WithDes("小幅度提升伤害Lv1")
+                .WithKey("atk_damage")
+                .WithDes(lv=> $"小幅度提升伤害Lv{lv}")
                 .WithMax(10)
-                .OnUpgrade((_,leve)=>
+                .OnUpgrade((_, leve) =>
                 {
                     if (leve == 1)
                     {
@@ -35,25 +44,23 @@ namespace Brotato
                     Global.Atk.Value += _atk * 0.15f;
                 })
             );
-            
+
             var atkSpeedLv1 = Add(new ExpUpgradeItem()
-                .WithKey("atk_speed_lv1")
-                .WithDes("提升攻击速度Lv1")
+                .WithKey("atk_speed")
+                .WithDes(lv => $"提升攻击速度Lv{lv}")
                 .WithMax(10)
                 .OnUpgrade((_, leve) =>
                 {
-                    if(leve == 2)
+                    if (leve == 2)
                     {
 
                     }
                     //记录当前等级攻击速度
                     float _atk = Global.AtkSpeed.Value;
                     //提升5%的攻击速度
-                    Global.AtkSpeed.Value += _atk * 0.05f;
+                    Global.AtkSpeed.Value -= _atk * 0.05f;
                 })
             );
-            Roll();
-
         }
         public void Roll()
         {

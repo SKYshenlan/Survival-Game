@@ -153,6 +153,7 @@ namespace SurvivalGame
                 DropManager.Default.GetAllExp.Instantiate().Position(go.Position()).Show();
                 return;
             }
+            var _ = Interface;
         }
         public static void ResetData()
         {
@@ -164,6 +165,7 @@ namespace SurvivalGame
             AtkSpeed.Value = 1;
             HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
+            Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
         /// <summary>
         /// 重置
