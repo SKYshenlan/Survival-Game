@@ -18,9 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: BoxCollider2D
+      PathToRoot: Axe
+      MemberName: Axe
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: HurtBox
+    ClassName: SimpleAxe
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
