@@ -32,8 +32,32 @@ MonoBehaviour:
       SpeedScale: 1
     - Name: Boss
       Active: 1
-      DurationSec: 0.5
+      DurationSec: 5
       EnemyPrefab: {fileID: 5212016363954905221, guid: d151fd8adebb5f5459d441ae681ca371, type: 3}
+      Second: 6
+      HPScale: 1
+      SpeedScale: 1
+  - Name: "\u7B2C\u4E8C\u6CE2 \u8718\u86DB"
+    Description: 
+    Waves:
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      DurationSec: 0.8
+      EnemyPrefab: {fileID: 9197926281680699071, guid: 2f66056ec29ad1c4d9c9c2367a3f501e, type: 3}
+      Second: 15
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      DurationSec: 0.5
+      EnemyPrefab: {fileID: 9197926281680699071, guid: 2f66056ec29ad1c4d9c9c2367a3f501e, type: 3}
       Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: Boss
+      Active: 1
+      DurationSec: 5
+      EnemyPrefab: {fileID: 5212016363954905221, guid: d151fd8adebb5f5459d441ae681ca371, type: 3}
+      Second: 6
       HPScale: 1
       SpeedScale: 1

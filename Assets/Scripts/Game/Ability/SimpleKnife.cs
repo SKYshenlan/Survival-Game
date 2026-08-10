@@ -16,7 +16,7 @@ namespace Brotato
         private void Update()
         {
             Second += Time.deltaTime;
-            if (Second >= 1)
+            if (Second >= Global.AtkSpeed.Value)
             {
                 Second = 0;
                 //查找满足条件的对象并返回数组         只查找激活状态             不进行排序

@@ -47,7 +47,7 @@ namespace Brotato
         /// </summary>
         public GameObject EnemyPrefab;
         /// <summary>
-        /// 当前波次时间
+        /// 当前波次持续时间
         /// </summary>
         public int Second = 10;
         /// <summary>

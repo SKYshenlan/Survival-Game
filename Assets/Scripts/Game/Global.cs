@@ -20,7 +20,7 @@ namespace SurvivalGame
         /// <summary>
         /// 攻击力
         /// </summary>
-        public static BindableProperty<float> Atk = new BindableProperty<float>(1);
+        public static BindableProperty<float> Atk = new BindableProperty<float>(3);
         /// <summary>
         /// 倒计时秒
         /// </summary>
@@ -159,7 +159,7 @@ namespace SurvivalGame
         {
             Exp.Value = 0;
             Leve.Value = 1;
-            Atk.Value = 1;
+            Atk.Value = 3;
             Second.Value = 0;
             minutes.Value = 0;
             AtkSpeed.Value = 1;
