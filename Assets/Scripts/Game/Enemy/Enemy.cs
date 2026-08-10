@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Brotato
 {
-	public partial class Enemy : ViewController
-	{
+	public partial class Enemy : ViewController, IEnemy
+    {
         public float HP = 3;
 		private float MoveSeppd = 2f;
         private bool _flag = false;
@@ -45,7 +45,7 @@ namespace Brotato
         /// <summary>
         /// 掉血逻辑
         /// </summary>
-        public void Hide(float value)
+        public void Hide(float value,bool flag =false)
         {
             if (_flag) return;
             //更改敌人颜色表示受伤

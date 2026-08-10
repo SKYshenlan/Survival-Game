@@ -20,10 +20,10 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos:
     - TypeName: SpriteRenderer
-      PathToRoot: Knife
-      MemberName: Knife
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: SimpleKnife
+      PathToRoot: Triangle
+      MemberName: Triangle
+    ScriptsFolder: Assets/Scripts/Game/Enemy
+    ClassName: EnemyBoos
     Namespace: Brotato
     MainCode: 
     DesignerCode: 
