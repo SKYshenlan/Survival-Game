@@ -48,7 +48,7 @@ namespace Brotato
                 })
                .OnUpdate(() =>
                {
-                   var frames = 3 + (60 * 3 - FSM.FrameCountOfCurrentState / 10);
+                   var frames = 3 + (60 * 3 - FSM.FrameCountOfCurrentState) / 10;
                    if(FSM.FrameCountOfCurrentState / frames %2 == 0)
                    {
                        Triangle.color = Color.red;
