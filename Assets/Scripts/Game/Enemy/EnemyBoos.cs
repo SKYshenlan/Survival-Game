@@ -15,6 +15,7 @@ namespace Brotato
             MovePlay,//向玩家移动
             Warning,//警戒
             Dash,//冲撞
+            Wait,//等待
         }
 
         void Start()
@@ -47,10 +48,23 @@ namespace Brotato
                 })
                .OnUpdate(() =>
                {
-                   if (FSM.FrameCountOfCurrentState >= 60*2)
+                   var frames = 3 + (60 * 3 - FSM.FrameCountOfCurrentState / 10);
+                   if(FSM.FrameCountOfCurrentState / frames %2 == 0)
+                   {
+                       Triangle.color = Color.red;
+                   }
+                   else
+                   {
+                       Triangle.color = Color.white;
+                   }
+                   if (FSM.FrameCountOfCurrentState >= 60 * 2)
                    {
                        FSM.ChangeState(States.Dash);
                    }
+               })
+               .OnEnter(() =>
+               {
+                   Triangle.color = Color.white;
                });
             var das = Vector3.zero;
             var dasPlay = 0f;
@@ -67,10 +81,23 @@ namespace Brotato
                     var dir = (transform.Position() - das).magnitude;
                     if(dir >= dasPlay + 5f)
                     {
+                        FSM.ChangeState(States.Wait);
+                    }
+                });
+            FSM.State(States.Wait)
+                .OnEnter(() =>
+                {
+                    SelfRigidbody2D.velocity = Vector2.zero;
+                })
+                .OnUpdate(() =>
+                {
+                    if (FSM.FrameCountOfCurrentState >= 30)
+                    {
                         FSM.ChangeState(States.MovePlay);
                     }
                 });
             FSM.StartState(States.MovePlay);
+            
 		}
         private void FixedUpdate()
         {

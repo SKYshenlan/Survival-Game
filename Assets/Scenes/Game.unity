@@ -2474,7 +2474,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104597475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 088204fb390eac34f8e1b1440a95fb83, type: 3}
   m_Name: 
@@ -2508,7 +2508,12 @@ MonoBehaviour:
   - DurationSec: 0.2
     EnemyPrefab: {fileID: 1295365317}
     Second: 10
+  - DurationSec: 2
+    EnemyPrefab: {fileID: 1913778998}
+    Second: 3
   Enemy: {fileID: 2123130575}
+  Enemyfly: {fileID: 0}
+  EnemyBoos: {fileID: 0}
 --- !u!4 &1104597477
 Transform:
   m_ObjectHideFlags: 0
@@ -111954,7 +111959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Namespace: Brotato
   ScriptName: Enemy
-  ScriptsFolder: Assets/Scripts/Game
+  ScriptsFolder: Assets\Scripts\Game\Enemy
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
@@ -113128,6 +113133,7 @@ GameObject:
   - component: {fileID: 1913779002}
   - component: {fileID: 1913779001}
   - component: {fileID: 1913779000}
+  - component: {fileID: 1913779003}
   m_Layer: 0
   m_Name: EnemyBoos
   m_TagString: Enemy
@@ -113144,7 +113150,7 @@ Transform:
   m_GameObject: {fileID: 1913778998}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.95, y: 0, z: 0}
+  m_LocalPosition: {x: 14.3, y: 14.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113172,7 +113178,9 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+  HP: 3
   Triangle: {fileID: 1298650846}
+  SelfRigidbody2D: {fileID: 1913779002}
 --- !u!114 &1913779001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113216,6 +113224,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1913779003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913778998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfRigidbody2D
+    Object: {fileID: 1913779002}
 --- !u!1 &1988402397
 GameObject:
   m_ObjectHideFlags: 0
