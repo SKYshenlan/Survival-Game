@@ -113140,7 +113140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1913778999
 Transform:
   m_ObjectHideFlags: 0
@@ -113379,7 +113379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Namespace: Brotato
   ScriptName: Enemy
-  ScriptsFolder: Assets/Scripts/Game
+  ScriptsFolder: Assets\Scripts\Game\Enemy
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 

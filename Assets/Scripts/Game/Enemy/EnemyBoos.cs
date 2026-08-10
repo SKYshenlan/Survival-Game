@@ -30,8 +30,9 @@ namespace Brotato
                         var dir = (Play.Defaulf.transform.position - transform.position).normalized;
                         //敌人平滑移动
                         SelfRigidbody2D.velocity = dir * MoveSeppd;
+                        Debug.Log("a");
                         //计算距离切换状态
-                        if ((Play.Defaulf.transform.Position() - transform.Position()).magnitude <= 8)
+                        if ((Play.Defaulf.transform.Position() - transform.Position()).magnitude <= 12)
                         {
                             FSM.ChangeState(States.Warning);
                         }
@@ -93,6 +94,7 @@ namespace Brotato
                 {
                     if (FSM.FrameCountOfCurrentState >= 30)
                     {
+
                         FSM.ChangeState(States.MovePlay);
                     }
                 });
