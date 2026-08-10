@@ -5,25 +5,11 @@ using System.Collections.Generic;
 
 namespace Brotato
 {
-    [System.Serializable]
-    public class EnemyWave
-    {
-        public float DurationSec = 1;
-        /// <summary>
-        /// 敌人模型
-        /// </summary>
-        public GameObject EnemyPrefab;
-        /// <summary>
-        /// 当前时间
-        /// </summary>
-        public int Second = 10;
-    }
+
 	public partial class EnemyList : ViewController
 	{
-        /// <summary>
-        /// 敌人集合
-        /// </summary>
-        [SerializeField] private List<EnemyWave> EnemyWave = new List<EnemyWave>();
+        [SerializeField]
+        LeveWaveConfig config;
         /// <summary>
         /// 敌人队列
         /// </summary>
@@ -42,15 +28,23 @@ namespace Brotato
         /// 当前波次
         /// </summary>
         private int WaveCount = 0;
-        public bool flag => WaveCount == EnemyWave.Count;
+        /// <summary>
+        /// 总数
+        /// </summary>
+        private int mTotalCout = 0;
+        public bool flag => WaveCount == mTotalCout;
         public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0);
         private void Start()
         {
-            //遍历敌人集合
-            foreach (var enemy in EnemyWave)
+            //遍历波次集合
+            foreach (var group in config.enemy)
             {
-                //将敌人存入队列
-                mEnemyWaveQueue.Enqueue(enemy);
+                foreach(var item in group.Waves)
+                {
+                    //将敌人存入队列
+                    mEnemyWaveQueue.Enqueue(item);
+                    mTotalCout++;
+                }
             }
         }
         private void Update()
