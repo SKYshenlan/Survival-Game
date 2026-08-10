@@ -7,7 +7,7 @@ namespace Brotato
 	public partial class Enemy : ViewController, IEnemy
     {
         public float HP = 3;
-		private float MoveSeppd = 2f;
+		public float MoveSeppd = 2f;
         private bool _flag = false;
 		void Start()
 		{
