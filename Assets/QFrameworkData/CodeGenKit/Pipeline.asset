@@ -18,8 +18,11 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets\Scripts\Game\Ability
+    BindInfos:
+    - TypeName: BoxCollider2D
+      PathToRoot: Sword
+      MemberName: Sword
+    ScriptsFolder: Assets/Scripts/Game/Ability
     ClassName: Simple_Sword
     Namespace: Brotato
     MainCode: 
