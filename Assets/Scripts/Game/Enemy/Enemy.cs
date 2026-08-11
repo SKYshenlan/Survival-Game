@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace Brotato
 {
-	public partial class Enemy : ViewController, IEnemy
+    public partial class Enemy : ViewController, IEnemy
     {
         public float HP = 3;
 		public float MoveSeppd = 2f;
         private bool _flag = false;
+        public Color DissolveColor = Color.yellow;
 		void Start()
 		{
             // Code Here
@@ -40,7 +41,13 @@ namespace Brotato
         }
         private void Update()
         {
-            
+            if (HP <= 0)
+            {
+                Global.Drop(gameObject);
+                FxController.Play(Triangle, DissolveColor);
+                //消除对象
+                this.DestroyGameObjGracefully();
+            }
         }
         /// <summary>
         /// 掉血逻辑
@@ -61,6 +68,16 @@ namespace Brotato
                 _flag = false;
 
             }).Start(this);//Start() 添加到当前物体生命周期中
+        }
+
+        public void SetHPScale(float hPScale)
+        {
+            HP *= hPScale;
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+            MoveSeppd *= speedScale;
         }
     }
 }

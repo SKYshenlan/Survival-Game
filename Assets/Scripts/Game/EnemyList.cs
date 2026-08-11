@@ -71,16 +71,29 @@ namespace Brotato
                     var play = Play.Defaulf;
                     if (play)
                     {
-                        //随机角度
-                        var randomAngle = Random.Range(0, 360f);
-                        //随机半径
-                        var randomRadius = randomAngle * Mathf.Deg2Rad;
-                        //方向
-                        var dir = new Vector3(Mathf.Cos(randomRadius), Mathf.Sin(randomRadius));
-                        //位置
-                        var pos = play.transform.position + dir * 10;
+                        var xOry = RandomUtility.Choose(-1, 1);
+                        var pos = Vector2.zero;
+                        if(xOry == -1)
+                        {
+                            pos.x = RandomUtility.Choose(CameraMove.LBTrans.position.x, CameraMove.RTTrans.position.x);
+                            pos.y = Random.Range(CameraMove.LBTrans.position.y, CameraMove.RTTrans.position.y);
+                        }
+                        else
+                        {
+                            pos.x = Random.Range(CameraMove.LBTrans.position.x, CameraMove.RTTrans.position.x);
+                            pos.y = RandomUtility.Choose(CameraMove.LBTrans.position.y, CameraMove.RTTrans.position.y);
+                            
+                        }
                         //在“pos位置”生成敌人并显示
-                        currentWave.EnemyPrefab.Instantiate().Position(pos).Show();
+                        currentWave.EnemyPrefab.Instantiate()
+                            .Position(pos)
+                            .Self(self =>
+                            {
+                                var enemy = self.GetComponent<IEnemy>();
+                                enemy.SetSpeedScale(currentWave.SpeedScale);
+                                enemy.SetHPScale(currentWave.HPScale);
+                            })
+                            .Show();
                     }
                 }
                 if (currentWaveSecond >= currentWave.Second)

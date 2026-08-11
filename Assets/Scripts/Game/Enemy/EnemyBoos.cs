@@ -136,5 +136,15 @@ namespace Brotato
 
             }).Start(this);//Start() 添加到当前物体生命周期中
         }
+
+        public void SetHPScale(float hPScale)
+        {
+            HP *= hPScale;
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+            MoveSeppd *= speedScale;
+        }
     }
 }

@@ -1,9 +1,13 @@
-// Generate Id:accbea2b-d4f2-48de-8715-57147a805129
+﻿// Generate Id:ec9bc44c-a62b-4719-a8dc-a3c834d9c023
 using UnityEngine;
 
 namespace Brotato
 {
 	public partial class CameraMove
 	{
+		public Transform RT;
+		
+		public Transform LB;
+		
 	}
 }
