@@ -48,6 +48,18 @@ namespace Brotato
                 }
 
             }).UnRegisterWhenDisabled(gameObject);//gameObject被销毁或隐藏时注销事件
+            void UpdateHp()
+            {
+                HpBgValue.fillAmount = Global.HP.Value / (float)Global.MaxHp.Value;
+            }
+            Global.HP.RegisterWithInitValue(hp =>
+            {
+                UpdateHp();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            Global.MaxHp.RegisterWithInitValue(hp =>
+            {
+                UpdateHp();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
         private void Update()
         {

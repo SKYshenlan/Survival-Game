@@ -1,4 +1,4 @@
-// Generate Id:4a70e5b4-e226-4a26-b2bc-f0c0a18881fc
+// Generate Id:17b4c2ef-d0d5-47b2-8dba-607711c3e7a2
 using UnityEngine;
 
 namespace Brotato
@@ -8,6 +8,8 @@ namespace Brotato
 		public SpriteRenderer Sprite;
 		
 		public CircleCollider2D HurtBox;
+		
+		public UnityEngine.UI.Image HpBgValue;
 		
 		public UnityEngine.Rigidbody2D DelfRigidbody2D;
 		

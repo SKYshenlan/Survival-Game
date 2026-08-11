@@ -15,8 +15,6 @@ namespace GameUI
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
-            // please add init code here
-            TextAtk();
             #region 回调
             var enemyList = FindObjectOfType<EnemyList>();
             EnemyList.EnemyCount.RegisterWithInitValue(count =>
@@ -49,10 +47,9 @@ namespace GameUI
             //注册并执行回调
             Global.Exp.RegisterWithInitValue(exp =>
             {
-                xp.text = $"经验值「{exp}/{Global.GetExp()}」";
+                ExpBgValue.fillAmount = exp / (float)Global.GetExp();
                 if (exp >= Global.GetExp())
                 {
-                    Debug.Log("进入升级分支");
                     int LV = Global.Leve.Value;
                     Global.Exp.Value = 0;
                     Global.Leve.Value++;
@@ -73,17 +70,7 @@ namespace GameUI
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
-            Global.HP.RegisterWithInitValue(_hp =>
-            {
-                HP.text = $"生命值「{_hp}」";
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);//gameObject被销毁或隐藏时注销事件
             #endregion
-        }
-
-        private void TextAtk()
-        {
-            AudioKit.PlaySound("level_up");
-            atk.text = $"攻击「{Global.Atk.Value.ToString("0.##")}」";
         }
 
         protected override void OnOpen(IUIData uiData = null)

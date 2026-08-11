@@ -4,7 +4,7 @@ using SurvivalGame;
 
 namespace Brotato
 {
-	public partial class Simple_Ability : ViewController
+	public partial class Simple_Sword : ViewController
 	{
 		//时间（秒）
 		private float Second = 0f;
