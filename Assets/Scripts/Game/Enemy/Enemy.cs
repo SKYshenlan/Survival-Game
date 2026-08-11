@@ -1,4 +1,5 @@
-﻿using QFramework;
+﻿using QAssetBundle;
+using QFramework;
 using SurvivalGame;
 using UnityEngine;
 
@@ -45,6 +46,7 @@ namespace Brotato
             {
                 Global.Drop(gameObject);
                 FxController.Play(Triangle, DissolveColor);
+                AudioKit.PlaySound(Sfx.ENEMY_DIE);
                 //消除对象
                 this.DestroyGameObjGracefully();
             }

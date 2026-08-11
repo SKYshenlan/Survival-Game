@@ -11,9 +11,40 @@
 namespace QAssetBundle
 {
     
+    public class Sfx
+    {
+        public const string BundleName = "sfx";
+        public const string BOMB = "bomb";
+        public const string COIN = "coin";
+        public const string DIE = "die";
+        public const string ENEMY_DIE = "enemy_die";
+        public const string EXP = "exp";
+        public const string GAME_PASS = "game_pass";
+        public const string GET_ALL_EXP = "get_all_exp";
+        public const string HIT = "hit";
+        public const string HP = "hp";
+        public const string HURT = "hurt";
+        public const string LEVEL_UP = "level_up";
+        public const string LVUP = "LvUp";
+    }
     public class Uigameovepanel_prefab
     {
         public const string BundleName = "uigameovepanel_prefab";
         public const string UIGAMEOVEPANEL = "UIGameOvePanel";
+    }
+    public class Uigamepanel_prefab
+    {
+        public const string BundleName = "uigamepanel_prefab";
+        public const string UIGAMEPANEL = "UIGamePanel";
+    }
+    public class Uigamepasspanel_prefab
+    {
+        public const string BundleName = "uigamepasspanel_prefab";
+        public const string UIGAMEPASSPANEL = "UIGamePassPanel";
+    }
+    public class Uistartscreen_prefab
+    {
+        public const string BundleName = "uistartscreen_prefab";
+        public const string UISTARTSCREEN = "UIStartScreen";
     }
 }

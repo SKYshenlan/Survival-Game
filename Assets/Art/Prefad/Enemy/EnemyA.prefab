@@ -447,6 +447,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   HP: 3
   MoveSeppd: 2
+  DissolveColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   Triangle: {fileID: 515258876341417169}
   SelfRigidbody2D: {fileID: 1612740435189364180}
 --- !u!114 &6953491320587536050
