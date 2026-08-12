@@ -20,7 +20,19 @@ namespace SurvivalGame
         /// <summary>
         /// 攻击力
         /// </summary>
-        public static BindableProperty<float> Atk = new BindableProperty<float>(3);
+        public static BindableProperty<float> Atk = new (Config.InitSimpleSwordDamage);
+        /// <summary>
+        /// 攻击速度
+        /// </summary>
+        public static BindableProperty<float> AtkSpeed = new (Config.InitSimpleSwordDuration);
+        /// <summary>
+        /// 攻击的数量
+        /// </summary>
+        public static BindableProperty<int> AtkCount = new (Config.InitSimpleSwordCount);
+        /// <summary>
+        /// 攻击范围
+        /// </summary>
+        public static BindableProperty<float> AtkRamge = new (Config.InitSimpleSwordRange);
         /// <summary>
         /// 倒计时秒
         /// </summary>
@@ -29,10 +41,6 @@ namespace SurvivalGame
         /// 倒计时分
         /// </summary>
         public static BindableProperty<float> minutes = new BindableProperty<float>(0);
-        /// <summary>
-        /// 攻击速度
-        /// </summary>
-        public static BindableProperty<float> AtkSpeed = new BindableProperty<float>(1);
         /// <summary>
         /// 金币
         /// </summary>
@@ -159,10 +167,14 @@ namespace SurvivalGame
         {
             Exp.Value = 0;
             Leve.Value = 1;
-            Atk.Value = 3;
             Second.Value = 0;
             minutes.Value = 0;
-            AtkSpeed.Value = 1;
+
+            Atk.Value = Config.InitSimpleSwordDamage;
+            AtkSpeed.Value = Config.InitSimpleSwordDuration;
+            AtkCount.Value = Config.InitSimpleSwordCount;
+            AtkRamge.Value = Config.InitSimpleSwordRange;
+
             HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();

@@ -30,15 +30,6 @@ namespace Brotato
             {
                 SelfRigidbody2D.velocity = Vector2.zero;
             }
-            if (HP <= 0)
-            {
-                HP = 0;
-                EnemyList.EnemyCount.Value--;
-                //生产经验
-                Global.Drop(gameObject);
-                //消除对象
-                this.DestroyGameObjGracefully();
-            }
         }
         private void Update()
         {
@@ -47,6 +38,7 @@ namespace Brotato
                 Global.Drop(gameObject);
                 FxController.Play(Triangle, DissolveColor);
                 AudioKit.PlaySound(Sfx.ENEMY_DIE);
+                EnemyList.EnemyCount.Value--;
                 //消除对象
                 this.DestroyGameObjGracefully();
             }

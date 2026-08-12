@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace Brotato
 {
+    /// <summary>
+    /// 局内升级系统
+    /// </summary>
     internal class ExpUpgradeSystem : AbstractSystem
     {
         public List<ExpUpgradeItem> Item { get; } = new List<ExpUpgradeItem>();
@@ -28,39 +31,71 @@ namespace Brotato
         public void ResetData()
         {
             Item.Clear();
-            var atkLv1 = Add(new ExpUpgradeItem()
-                .WithKey("atk_damage")
-                .WithDes(lv=> $"小幅度提升伤害Lv{lv}")
+
+            Add(new ExpUpgradeItem()
+                .WithKey("simple_sword")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"剑Lv{lv}:攻击身边的敌人",
+                        2 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        3 => $"剑Lv{lv}:攻击力+2 间隔-0.25s",
+                        4 => $"剑Lv{lv}:攻击力+2 间隔-0.25s",
+                        5 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        6 => $"剑Lv{lv}:范围+1 间隔-0.25s",
+                        7 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        8 => $"剑Lv{lv}:攻击力+2 范围+1",
+                        9 => $"剑Lv{lv}:攻击力+3 间隔-0.25s",
+                        10 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        _ =>null
+                    };
+                })
                 .WithMax(10)
                 .OnUpgrade((_, leve) =>
                 {
-                    if (leve == 1)
+                    switch (leve)
                     {
-
+                        case 1:
+                            break;
+                        case 2:
+                            Global.Atk.Value += 3;
+                            Global.AtkCount.Value += 2;
+                            break;
+                        case 3:
+                            Global.Atk.Value += 2;
+                            Global.AtkSpeed.Value-= 0.25f;
+                            break;
+                        case 4:
+                            Global.Atk.Value += 2;
+                            Global.AtkSpeed.Value -= 0.25f;
+                            break;
+                        case 5:
+                            Global.Atk.Value += 3;
+                            Global.AtkCount.Value += 2;
+                            break;
+                        case 6:
+                            Global.AtkRamge.Value += 1;
+                            Global.AtkSpeed.Value -= 0.25f;
+                            break;
+                        case 7:
+                            Global.Atk.Value += 3;
+                            Global.AtkCount.Value += 2;
+                            break;
+                        case 8:
+                            Global.Atk.Value += 2;
+                            Global.AtkRamge.Value += 1;
+                            break;
+                        case 9:
+                            Global.Atk.Value += 3;
+                            Global.AtkSpeed.Value -= 0.25f;
+                            break;
+                        case 10:
+                            Global.Atk.Value += 3;
+                            Global.AtkCount.Value += 2;
+                            break;
                     }
-                    //记录当前等级攻击力
-                    float _atk = Global.Atk.Value;
-                    //提升15%的攻击
-                    Global.Atk.Value += _atk * 0.15f;
-                })
-            );
-
-            var atkSpeedLv1 = Add(new ExpUpgradeItem()
-                .WithKey("atk_speed")
-                .WithDes(lv => $"提升攻击速度Lv{lv}")
-                .WithMax(10)
-                .OnUpgrade((_, leve) =>
-                {
-                    if (leve == 2)
-                    {
-
-                    }
-                    //记录当前等级攻击速度
-                    float _atk = Global.AtkSpeed.Value;
-                    //提升5%的攻击速度
-                    Global.AtkSpeed.Value -= _atk * 0.05f;
-                })
-            );
+                }));
         }
         public void Roll()
         {
