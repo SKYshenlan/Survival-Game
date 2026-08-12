@@ -8,7 +8,7 @@ namespace SurvivalGame
 {
     public class Global : Architecture<Global>
     {
-        #region Model
+        #region 局内
         /// <summary>
         /// 经验 主动通知UI发生改变的响应式数据容器
         /// </summary>
@@ -18,22 +18,6 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<int> Leve = new BindableProperty<int>(1);
         /// <summary>
-        /// 攻击力
-        /// </summary>
-        public static BindableProperty<float> Atk = new (Config.InitSimpleSwordDamage);
-        /// <summary>
-        /// 攻击速度
-        /// </summary>
-        public static BindableProperty<float> AtkSpeed = new (Config.InitSimpleSwordDuration);
-        /// <summary>
-        /// 攻击的数量
-        /// </summary>
-        public static BindableProperty<int> AtkCount = new (Config.InitSimpleSwordCount);
-        /// <summary>
-        /// 攻击范围
-        /// </summary>
-        public static BindableProperty<float> AtkRamge = new (Config.InitSimpleSwordRange);
-        /// <summary>
         /// 倒计时秒
         /// </summary>
         public static BindableProperty<float> Second = new BindableProperty<float>(0);
@@ -41,6 +25,8 @@ namespace SurvivalGame
         /// 倒计时分
         /// </summary>
         public static BindableProperty<float> minutes = new BindableProperty<float>(0);
+        #endregion
+        #region 玩家
         /// <summary>
         /// 金币
         /// </summary>
@@ -73,6 +59,38 @@ namespace SurvivalGame
         /// 最大生命值
         /// </summary>
         public static BindableProperty<int> MaxHp = new BindableProperty<int>(3);
+        #endregion
+        #region 弯刀攻击
+        /// <summary>
+        /// 攻击力
+        /// </summary>
+        public static BindableProperty<float> Atk = new(Config.InitSimpleSwordDamage);
+        /// <summary>
+        /// 攻击速度
+        /// </summary>
+        public static BindableProperty<float> AtkSpeed = new(Config.InitSimpleSwordDuration);
+        /// <summary>
+        /// 攻击的数量
+        /// </summary>
+        public static BindableProperty<int> AtkCount = new(Config.InitSimpleSwordCount);
+        /// <summary>
+        /// 攻击范围
+        /// </summary>
+        public static BindableProperty<float> AtkRamge = new(Config.InitSimpleSwordRange);
+        #endregion
+        #region 飞刀
+        /// <summary>
+        /// 飞刀伤害
+        /// </summary>
+        public static BindableProperty<float> KinfAtk = new(Config.InitSimpleKnifDamage);
+        /// <summary>
+        /// 飞刀数量
+        /// </summary>
+        public static BindableProperty<int> KinfAtkCout = new(Config.InitSimpleKnifCount);
+        /// <summary>
+        /// 飞刀速度
+        /// </summary>
+        public static BindableProperty<float> KinfAtkSpeed = new(Config.InitSimpleKnifDuration);
 
         #endregion
         ///启动时自动执行
@@ -165,16 +183,19 @@ namespace SurvivalGame
         }
         public static void ResetData()
         {
-            Exp.Value = 0;
-            Leve.Value = 1;
-            Second.Value = 0;
-            minutes.Value = 0;
-
             Atk.Value = Config.InitSimpleSwordDamage;
             AtkSpeed.Value = Config.InitSimpleSwordDuration;
             AtkCount.Value = Config.InitSimpleSwordCount;
             AtkRamge.Value = Config.InitSimpleSwordRange;
 
+            KinfAtk.Value = Config.InitSimpleKnifDamage;
+            KinfAtkCout.Value = Config.InitSimpleKnifCount;
+            KinfAtkSpeed.Value = Config.InitSimpleKnifDuration;
+
+            Exp.Value = 0;
+            Leve.Value = 1;
+            Second.Value = 0;
+            minutes.Value = 0;
             HP.Value = MaxHp.Value;
             EnemyList.EnemyCount.Value = 0;
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();

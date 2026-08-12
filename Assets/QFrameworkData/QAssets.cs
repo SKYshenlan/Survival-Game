@@ -24,8 +24,14 @@ namespace QAssetBundle
         public const string HIT = "hit";
         public const string HP = "hp";
         public const string HURT = "hurt";
+        public const string KNIFE = "knife";
         public const string LEVEL_UP = "level_up";
         public const string LVUP = "LvUp";
+    }
+    public class Uigame_prefab
+    {
+        public const string BundleName = "uigame_prefab";
+        public const string UIGAME = "UIGame";
     }
     public class Uigameovepanel_prefab
     {
