@@ -14,6 +14,7 @@ namespace QAssetBundle
     public class Sfx
     {
         public const string BundleName = "sfx";
+        public const string BALL = "ball";
         public const string BOMB = "bomb";
         public const string COIN = "coin";
         public const string DIE = "die";

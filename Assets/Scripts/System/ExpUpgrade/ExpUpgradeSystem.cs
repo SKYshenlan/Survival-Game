@@ -226,6 +226,61 @@ namespace Brotato
                             break;
                     }
                 }));
+            Add(new ExpUpgradeItem()
+                .WithKey("basket_ball")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"篮球Lv{lv}:拥有弹性的篮球",
+                        2 => $"篮球Lv{lv}:攻击+3",
+                        3 => $"篮球Lv{lv}:数量+1",
+                        4 => $"篮球Lv{lv}:攻击+3",
+                        5 => $"篮球Lv{lv}:数量+1",
+                        6 => $"篮球Lv{lv}:攻击+3",
+                        7 => $"篮球Lv{lv}:速度+20%",
+                        8 => $"篮球Lv{lv}:攻击+3",
+                        9 => $"篮球Lv{lv}:速度+20%",
+                        10 => $"篮球Lv{lv}:数量+1",
+                        _ => null
+                    };
+                })
+                .WithMax(10)
+                .OnUpgrade((_, leve) =>
+                {
+                    switch (leve)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            Global.BasketBallAtk.Value += 3;
+                            break;
+                        case 3:
+                            Global.BasketBallCount.Value += 1;
+                            break;
+                        case 4:
+                            Global.BasketBallAtk.Value += 3;
+                            break;
+                        case 5:
+                            Global.BasketBallCount.Value += 1;
+                            break;
+                        case 6:
+                            Global.BasketBallAtk.Value += 3;
+                            break;
+                        case 7:
+                            Global.BasketBallSpeed.Value *= 1.2f;
+                            break;
+                        case 8:
+                            Global.BasketBallAtk.Value += 3;
+                            break;
+                        case 9:
+                            Global.BasketBallSpeed.Value *= 1.2f;
+                            break;
+                        case 10:
+                            Global.BasketBallCount.Value += 1;
+                            break;
+                    }
+                }));
         }
         public void Roll()
         {
@@ -233,7 +288,7 @@ namespace Brotato
             {
                 item1.Visible.Value = false;
             }
-            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(3))
+            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(4))
             {
                 if (item == null)
                 {

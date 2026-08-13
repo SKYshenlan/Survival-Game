@@ -62,6 +62,19 @@ namespace Brotato
         /// </summary>
         public const float InitRotatteSwordRange = 2f;
         #endregion
-
+        #region 篮球
+        /// <summary>
+        /// 初始伤害
+        /// </summary>
+        public const float InitBasketBallDamage = 5;
+        /// <summary>
+        /// 初始速度
+        /// </summary>
+        public const float InitBasketBallDuration = 10f;
+        /// <summary>
+        /// 初始数量
+        /// </summary>
+        public const int InitBasketBallCount = 1;
+        #endregion
     }
 }

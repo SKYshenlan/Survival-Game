@@ -114,6 +114,20 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> RotatteSwordRange = new(Config.InitRotatteSwordRange);
         #endregion
+        #region 篮球
+        /// <summary>
+        /// 篮球速度
+        /// </summary>
+        public static BindableProperty<float> BasketBallSpeed = new(Config.InitBasketBallDuration);
+        /// <summary>
+        /// 篮球伤害
+        /// </summary>
+        public static BindableProperty<float> BasketBallAtk = new(Config.InitBasketBallDamage);
+        /// <summary>
+        /// 篮球数量
+        /// </summary>
+        public static BindableProperty<float> BasketBallCount = new(Config.InitBasketBallCount);
+        #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
@@ -218,6 +232,10 @@ namespace SurvivalGame
             RotatteSwordCount.Value = Config.InitRotatteSwordCount;
             RotatteSwordSpeed.Value = Config.InitRotatteSwordDuration;
             RotatteSwordRange.Value = Config.InitRotatteSwordRange;
+
+            BasketBallSpeed.Value = Config.InitBasketBallDuration;
+            BasketBallAtk.Value = Config.InitBasketBallDamage;
+            BasketBallCount.Value = Config.InitBasketBallCount;
 
             Exp.Value = 0;
             Leve.Value = 1;
