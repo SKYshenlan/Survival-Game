@@ -46,7 +46,8 @@ namespace Brotato
                                 //获取刚体
                                 var rigidbody2D = self.GetComponent<Rigidbody2D>();
                                 //设置一个瞬间的绝对速度
-                                rigidbody2D.velocity = item.NormalizedDirection2DFrom(Play.Defaulf) * 10;
+                                rigidbody2D.velocity = dir * 10;
+                                var AttackCount = 0;
                                 self.OnTriggerEnter2DEvent(call =>
                                 {
                                     var Box = call.GetComponent<HurtBox>();
@@ -55,7 +56,12 @@ namespace Brotato
                                         if (Box.Owner.CompareTag("Enemy"))
                                         {
                                             Box.Owner.GetComponent<Enemy>().Hide(Global.KinfAtk.Value);
-                                            selfCache.DestroyGameObjGracefully();
+                                            AttackCount++;
+                                            if(AttackCount >= Global.KinfPenetration.Value)
+                                            {
+                                                selfCache.DestroyGameObjGracefully();
+
+                                            }
                                         }
                                     }
                                 }).UnRegisterWhenGameObjectDestroyed(self);

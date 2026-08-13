@@ -39,6 +39,10 @@ namespace Brotato
         /// 初始数量
         /// </summary>
         public const int InitSimpleKnifCount = 1;
+        /// <summary>
+        /// 初始穿透
+        /// </summary>
+        public const int InitSimpleKinfPenetration = 1;
         #endregion
 
 

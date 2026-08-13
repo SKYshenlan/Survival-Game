@@ -96,6 +96,73 @@ namespace Brotato
                             break;
                     }
                 }));
+            Add(new ExpUpgradeItem()
+                .WithKey("simple_sword")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"飞刀Lv{lv}:向最近的敌人发射一把飞刀",
+                        2 => $"飞刀Lv{lv}:攻击力+3 数量+2",
+                        3 => $"飞刀Lv{lv}:攻击力+1 间隔-0.1s 数量+1",
+                        4 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s 数量+1",
+                        5 => $"飞刀Lv{lv}:攻击力+3 数量+1",
+                        6 => $"飞刀Lv{lv}:数量+1 间隔-0.1s",
+                        7 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s",
+                        8 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s 数量+1",
+                        9 => $"飞刀Lv{lv}:攻击力+3 间隔-0.1s",
+                        10 => $"飞刀Lv{lv}:攻击力+3 数量+2",
+                        _ => null
+                    };
+                })
+                .WithMax(10)
+                .OnUpgrade((_, leve) =>
+                {
+                    switch (leve)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            Global.KinfAtk.Value += 3;
+                            Global.KinfAtkCout.Value += 2;
+                            break;
+                        case 3:
+                            Global.KinfAtk.Value += 1;
+                            Global.KinfAtkSpeed.Value -= 0.1f;
+                            Global.KinfAtkCout.Value += 1;
+                            break;
+                        case 4:
+                            Global.KinfPenetration.Value += 1;
+                            Global.KinfAtkCout.Value += 1;
+                            Global.AtkSpeed.Value -= 0.1f;
+                            break;
+                        case 5:
+                            Global.KinfAtk.Value += 3;
+                            Global.KinfAtkCout.Value += 1;
+                            break;
+                        case 6:
+                            Global.KinfAtkCout.Value += 1;
+                            Global.KinfAtkSpeed.Value -= 0.1f;
+                            break;
+                        case 7:
+                            Global.KinfPenetration.Value += 1;
+                            Global.KinfAtkSpeed.Value -= 0.1f;
+                            break;
+                        case 8:
+                            Global.KinfPenetration.Value += 1;
+                            Global.KinfAtkSpeed.Value -= 0.1f;
+                            Global.KinfAtkCout.Value += 1;
+                            break;
+                        case 9:
+                            Global.KinfAtk.Value += 3;
+                            Global.KinfAtkSpeed.Value -= 0.1f;
+                            break;
+                        case 10:
+                            Global.KinfAtk.Value += 3;
+                            Global.KinfAtkCout.Value += 2;
+                            break;
+                    }
+                }));
         }
         public void Roll()
         {
@@ -103,15 +170,18 @@ namespace Brotato
             {
                 item1.Visible.Value = false;
             }
-            var item = Item.Where(item => !item.UpgradeFinish).ToList().GetRandomItem();
-            if(item == null)
+            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(2))
             {
+                if (item == null)
+                {
 
+                }
+                else
+                {
+                    item.Visible.Value = true;
+                }
             }
-            else
-            {
-                item.Visible.Value = true;
-            }
+            
         }
     }
 }

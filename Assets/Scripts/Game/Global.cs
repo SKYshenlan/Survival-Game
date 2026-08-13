@@ -91,7 +91,10 @@ namespace SurvivalGame
         /// 飞刀速度
         /// </summary>
         public static BindableProperty<float> KinfAtkSpeed = new(Config.InitSimpleKnifDuration);
-
+        /// <summary>
+        /// 飞刀穿透
+        /// </summary>
+        public static BindableProperty<int> KinfPenetration = new(Config.InitSimpleKinfPenetration);
         #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
@@ -191,6 +194,7 @@ namespace SurvivalGame
             KinfAtk.Value = Config.InitSimpleKnifDamage;
             KinfAtkCout.Value = Config.InitSimpleKnifCount;
             KinfAtkSpeed.Value = Config.InitSimpleKnifDuration;
+            KinfPenetration.Value = Config.InitSimpleKinfPenetration;
 
             Exp.Value = 0;
             Leve.Value = 1;

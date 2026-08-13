@@ -21,16 +21,26 @@ namespace Brotato
 				}
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
-		}
+			UpdateCirclePos();
+
+        }
+		void UpdateCirclePos()
+		{
+            //半径
+            var radius = 3;
+            //计算位置
+            var Circlepos = new Vector2(Mathf.Cos(0 * Mathf.Deg2Rad), Mathf.Sin(0 * Mathf.Deg2Rad)) * radius;
+            Circle.LocalPosition(Circlepos.x, Circlepos.y)
+                .LocalEulerAnglesZ(-90);
+        }
         private void Update()
         {
-			//半径
-			var radius = 3;
+
+
 			//速度
 			var degree = Time.frameCount;
-			//计算位置
-			var Circlepos = new Vector2(-Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad)) * radius;
-            Circle.LocalPosition(Circlepos.x,Circlepos.y);
+			this.LocalEulerAnglesZ(-degree);
+			
         }
     }
 }

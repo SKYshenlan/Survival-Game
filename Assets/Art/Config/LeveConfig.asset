@@ -30,6 +30,20 @@ MonoBehaviour:
       Second: 30
       HPScale: 1
       SpeedScale: 1
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      DurationSec: 0.2
+      EnemyPrefab: {fileID: 9197926281680699071, guid: 2f66056ec29ad1c4d9c9c2367a3f501e, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5E7D\u7075"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 9197926281680699071, guid: 2f66056ec29ad1c4d9c9c2367a3f501e, type: 3}
+      Second: 40
+      HPScale: 1
+      SpeedScale: 1
     - Name: Boss
       Active: 1
       DurationSec: 5
