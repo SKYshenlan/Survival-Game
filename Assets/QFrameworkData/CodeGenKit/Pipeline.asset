@@ -19,11 +19,11 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: BoxCollider2D
+    - TypeName: CircleCollider2D
       PathToRoot: Sword
       MemberName: Sword
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: Simple_Sword
+    ScriptsFolder: Assets\Scripts\Game\Ability
+    ClassName: RotatteSword
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

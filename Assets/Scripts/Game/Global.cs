@@ -96,6 +96,24 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<int> KinfPenetration = new(Config.InitSimpleKinfPenetration);
         #endregion
+        #region 旋转剑
+        /// <summary>
+        /// 旋转剑伤害
+        /// </summary>
+        public static BindableProperty<float> RotatteSwordAtk = new(Config.InitRotatteSwordDamage);
+        /// <summary>
+        /// 旋转剑数量
+        /// </summary>
+        public static BindableProperty<int> RotatteSwordCount = new(Config.InitRotatteSwordCount);
+        /// <summary>
+        /// 旋转剑速度
+        /// </summary>
+        public static BindableProperty<float> RotatteSwordSpeed = new(Config.InitRotatteSwordDuration);
+        /// <summary>
+        /// 旋转剑范围
+        /// </summary>
+        public static BindableProperty<float> RotatteSwordRange = new(Config.InitRotatteSwordRange);
+        #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
@@ -195,6 +213,11 @@ namespace SurvivalGame
             KinfAtkCout.Value = Config.InitSimpleKnifCount;
             KinfAtkSpeed.Value = Config.InitSimpleKnifDuration;
             KinfPenetration.Value = Config.InitSimpleKinfPenetration;
+
+            RotatteSwordAtk.Value = Config.InitRotatteSwordDamage;
+            RotatteSwordCount.Value = Config.InitRotatteSwordCount;
+            RotatteSwordSpeed.Value = Config.InitRotatteSwordDuration;
+            RotatteSwordRange.Value = Config.InitRotatteSwordRange;
 
             Exp.Value = 0;
             Leve.Value = 1;

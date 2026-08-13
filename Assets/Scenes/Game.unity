@@ -1707,12 +1707,12 @@ GameObject:
   - component: {fileID: 897096069}
   - component: {fileID: 897096068}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &897096067
 Transform:
   m_ObjectHideFlags: 0
@@ -111856,12 +111856,12 @@ GameObject:
   - component: {fileID: 1424177021}
   - component: {fileID: 1424177022}
   m_Layer: 0
-  m_Name: SimpleCircle
+  m_Name: RotatteSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1424177021
 Transform:
   m_ObjectHideFlags: 0
@@ -111891,13 +111891,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Namespace: Brotato
-  ScriptName: SimpleCircle
-  ScriptsFolder: Assets/Scripts/Game/Ability
+  ScriptName: RotatteSword
+  ScriptsFolder: Assets\Scripts\Game\Ability
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
-  Circle: {fileID: 897096069}
+  Sword: {fileID: 897096069}
 --- !u!1 &1448622566
 GameObject:
   m_ObjectHideFlags: 0
@@ -112303,7 +112303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1601856151
 Transform:
   m_ObjectHideFlags: 0
@@ -112313,7 +112313,7 @@ Transform:
   m_GameObject: {fileID: 1601856150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.712, y: -0.147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112360,7 +112360,7 @@ SpriteRenderer:
   m_SortingLayerID: -1099402045
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe443d5e5372748429ca89ffeab97e93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112423,7 +112423,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

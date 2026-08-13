@@ -19,16 +19,19 @@ namespace Brotato
         }
         private void FixedUpdate()
         {
-            //向量的长度强制变成 1
-            if (Play.Defaulf)
+            if (!_flag)
             {
-                var dir = (Play.Defaulf.transform.position - transform.position).normalized;
-                //敌人平滑移动
-                SelfRigidbody2D.velocity = dir * MoveSeppd;
-            }
-            else
-            {
-                SelfRigidbody2D.velocity = Vector2.zero;
+                //向量的长度强制变成 1
+                if (Play.Defaulf)
+                {
+                    var dir = (Play.Defaulf.transform.position - transform.position).normalized;
+                    //敌人平滑移动
+                    SelfRigidbody2D.velocity = dir * MoveSeppd;
+                }
+                else
+                {
+                    SelfRigidbody2D.velocity = Vector2.zero;
+                }
             }
         }
         private void Update()
@@ -49,6 +52,8 @@ namespace Brotato
         public void Hide(float value,bool flag =false)
         {
             if (_flag) return;
+            _flag = true;
+            SelfRigidbody2D.velocity = Vector2.zero;
             //更改敌人颜色表示受伤
             Triangle.color = Color.red;
             FloatingTextController.Play(transform.position+Vector3.up,value);

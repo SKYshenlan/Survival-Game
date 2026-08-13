@@ -39,15 +39,15 @@ namespace Brotato
                     return lv switch
                     {
                         1 => $"剑Lv{lv}:攻击身边的敌人",
-                        2 => $"剑Lv{lv}:攻击力+3 数量+2",
-                        3 => $"剑Lv{lv}:攻击力+2 间隔-0.25s",
-                        4 => $"剑Lv{lv}:攻击力+2 间隔-0.25s",
-                        5 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        2 => $"剑Lv{lv}:攻击+3 数量+2",
+                        3 => $"剑Lv{lv}:攻击+2 间隔-0.25s",
+                        4 => $"剑Lv{lv}:攻击+2 间隔-0.25s",
+                        5 => $"剑Lv{lv}:攻击+3 数量+2",
                         6 => $"剑Lv{lv}:范围+1 间隔-0.25s",
-                        7 => $"剑Lv{lv}:攻击力+3 数量+2",
-                        8 => $"剑Lv{lv}:攻击力+2 范围+1",
-                        9 => $"剑Lv{lv}:攻击力+3 间隔-0.25s",
-                        10 => $"剑Lv{lv}:攻击力+3 数量+2",
+                        7 => $"剑Lv{lv}:攻击+3 数量+2",
+                        8 => $"剑Lv{lv}:攻击+2 范围+1",
+                        9 => $"剑Lv{lv}:攻击+3 间隔-0.25s",
+                        10 => $"剑Lv{lv}:攻击+3 数量+2",
                         _ =>null
                     };
                 })
@@ -97,21 +97,21 @@ namespace Brotato
                     }
                 }));
             Add(new ExpUpgradeItem()
-                .WithKey("simple_sword")
+                .WithKey("simple_Kinf")
                 .WithDes(lv =>
                 {
                     return lv switch
                     {
                         1 => $"飞刀Lv{lv}:向最近的敌人发射一把飞刀",
-                        2 => $"飞刀Lv{lv}:攻击力+3 数量+2",
-                        3 => $"飞刀Lv{lv}:攻击力+1 间隔-0.1s 数量+1",
+                        2 => $"飞刀Lv{lv}:攻击+3 数量+2",
+                        3 => $"飞刀Lv{lv}:攻击+1 间隔-0.1s 数量+1",
                         4 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s 数量+1",
-                        5 => $"飞刀Lv{lv}:攻击力+3 数量+1",
+                        5 => $"飞刀Lv{lv}:攻击+3 数量+1",
                         6 => $"飞刀Lv{lv}:数量+1 间隔-0.1s",
                         7 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s",
                         8 => $"飞刀Lv{lv}:穿透+1 间隔-0.1s 数量+1",
-                        9 => $"飞刀Lv{lv}:攻击力+3 间隔-0.1s",
-                        10 => $"飞刀Lv{lv}:攻击力+3 数量+2",
+                        9 => $"飞刀Lv{lv}:攻击+3 间隔-0.1s",
+                        10 => $"飞刀Lv{lv}:攻击+3 数量+2",
                         _ => null
                     };
                 })
@@ -163,6 +163,69 @@ namespace Brotato
                             break;
                     }
                 }));
+            Add(new ExpUpgradeItem()
+                .WithKey("Rotatte_Sword")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"守卫剑Lv{lv}:环绕身边的剑",
+                        2 => $"守卫剑Lv{lv}:数量+1 攻击+1",
+                        3 => $"守卫剑Lv{lv}:攻击+2 速度+25%",
+                        4 => $"守卫剑Lv{lv}:速度+50%",
+                        5 => $"守卫剑Lv{lv}:数量+1 攻击+1",
+                        6 => $"守卫剑Lv{lv}:攻击+2 速度+25%",
+                        7 => $"守卫剑Lv{lv}:数量+1 攻击+1",
+                        8 => $"守卫剑Lv{lv}:攻击+2 速度+25%",
+                        9 => $"守卫剑Lv{lv}:数量+1 攻击+1",
+                        10 => $"守卫剑Lv{lv}:攻击+2 速度+25%",
+                        _ => null
+                    };
+                })
+                .WithMax(10)
+                .OnUpgrade((_, leve) =>
+                {
+                    switch (leve)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            Global.RotatteSwordCount.Value += 1;
+                            Global.RotatteSwordAtk.Value += 1;
+                            break;
+                        case 3:
+                            Global.RotatteSwordAtk.Value += 2;
+                            Global.RotatteSwordSpeed.Value *= 1.25f;
+                            break;
+                        case 4:
+                            Global.RotatteSwordSpeed.Value *= 1.50f;
+                            break;
+                        case 5:
+                            Global.RotatteSwordCount.Value += 1;
+                            Global.RotatteSwordAtk.Value += 1;
+                            break;
+                        case 6:
+                            Global.RotatteSwordAtk.Value += 2;
+                            Global.RotatteSwordSpeed.Value *= 1.25f;
+                            break;
+                        case 7:
+                            Global.RotatteSwordCount.Value += 1;
+                            Global.RotatteSwordAtk.Value += 1;
+                            break;
+                        case 8:
+                            Global.RotatteSwordAtk.Value += 2;
+                            Global.RotatteSwordSpeed.Value *= 1.25f;
+                            break;
+                        case 9:
+                            Global.RotatteSwordCount.Value += 1;
+                            Global.RotatteSwordAtk.Value += 1;
+                            break;
+                        case 10:
+                            Global.RotatteSwordAtk.Value += 2;
+                            Global.RotatteSwordSpeed.Value *= 1.25f;
+                            break;
+                    }
+                }));
         }
         public void Roll()
         {
@@ -170,7 +233,7 @@ namespace Brotato
             {
                 item1.Visible.Value = false;
             }
-            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(2))
+            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(3))
             {
                 if (item == null)
                 {

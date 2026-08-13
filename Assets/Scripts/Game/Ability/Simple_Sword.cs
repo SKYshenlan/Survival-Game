@@ -21,6 +21,7 @@ namespace Brotato
                 Second = 0;
                 //查找满足条件的对象并返回数组         只查找激活状态             不进行排序
                 var enemy = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+                // 按敌人与玩家位置的距离从小到大排序；并筛选出小于玩家攻击半径的敌人，再取前 Global.AtkCount.Value 个
                 foreach (var item in enemy.OrderBy(e => e.Direction2DFrom(Play.Defaulf).magnitude)
                     .Where(e => e.Direction2DFrom(Play.Defaulf).magnitude < Global.AtkRamge.Value)
                     .Take(Global.AtkCount.Value))
@@ -69,7 +70,7 @@ namespace Brotato
                                     p.Lerp(10, -180, 0.2f, z => selfCache.LocalEulerAnglesZ(z));
                                     //在并行组中添加一个顺序子序列
                                     p.Append(ActionKit.Sequence()
-                                            //子序列第一步：缩放从0到1.25，0.1秒
+                                            //子序列第一步：缩放从1到1.25，0.1秒
                                             .Lerp(1, 1.25f, 0.1f, scale => { selfCache.LocalScale(scale); })
                                             //子序列第二步：缩放从1.25回到1，0.1秒
                                             .Lerp(1.25f, 1, 0.1f, scale => { selfCache.LocalScale(scale); })

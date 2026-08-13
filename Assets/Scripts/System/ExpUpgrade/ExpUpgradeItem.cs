@@ -11,9 +11,21 @@ namespace Brotato
 {
     internal class ExpUpgradeItem
     {
+        /// <summary>
+        /// 建
+        /// </summary>
         public string Key { get; private set; }
+        /// <summary>
+        /// 介绍
+        /// </summary>
         public string Des => mDesFun(CurrentLeve.Value);
+        /// <summary>
+        /// 等级
+        /// </summary>
         public int MaxLeve { get; private set; }
+        /// <summary>
+        /// 当前等级
+        /// </summary>
         public BindableProperty<int> CurrentLeve = new BindableProperty<int>(1);
         public BindableProperty<bool> Visible = new BindableProperty<bool>();
         private Func<int, string> mDesFun;
@@ -29,8 +41,8 @@ namespace Brotato
         private Action<ExpUpgradeItem,int> mOnUpgrade;
         public void Upgrade()
         {
-            CurrentLeve.Value++;
             mOnUpgrade?.Invoke(this,CurrentLeve.Value);
+            CurrentLeve.Value++;
             if (CurrentLeve.Value > 10)
             {
                 UpgradeFinish = true;

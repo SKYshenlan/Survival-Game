@@ -44,7 +44,24 @@ namespace Brotato
         /// </summary>
         public const int InitSimpleKinfPenetration = 1;
         #endregion
-
+        #region 旋转剑
+        /// <summary>
+        /// 初始伤害
+        /// </summary>
+        public const float InitRotatteSwordDamage = 5;
+        /// <summary>
+        /// 初始速度
+        /// </summary>
+        public const float InitRotatteSwordDuration = 1.5f;
+        /// <summary>
+        /// 初始数量
+        /// </summary>
+        public const int InitRotatteSwordCount = 1;
+        /// <summary>
+        /// 初始范围
+        /// </summary>
+        public const float InitRotatteSwordRange = 2f;
+        #endregion
 
     }
 }
