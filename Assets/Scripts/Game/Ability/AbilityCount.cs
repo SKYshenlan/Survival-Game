@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
 using SurvivalGame;
+using System.Linq;
 
 namespace Brotato
 {
@@ -39,7 +40,9 @@ namespace Brotato
                 }
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			//随机升级
-			this.GetSystem<ExpUpgradeSystem>().Item.GetRandomItem().Upgrade();
+			this.GetSystem<ExpUpgradeSystem>().Item.Where(item => item.IsWeapon)
+				.ToList()	
+				.GetRandomItem().Upgrade();
 		}
         public IArchitecture GetArchitecture()
         {

@@ -43,7 +43,7 @@ namespace Brotato
                                         }
                                     }
                                 }).UnRegisterWhenGameObjectDestroyed(gameObject);
-                                //劈砍动画,创建一个新的动作序列
+                                //劈砍动画,创建一个动作序列
                                 ActionKit.Sequence()
                                 //添加一个回调动作
                                 .Callback(() =>

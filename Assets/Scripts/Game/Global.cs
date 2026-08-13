@@ -40,10 +40,6 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> CoinsPercent = new BindableProperty<float>(0.05f);
         /// <summary>
-        /// 炸弹概率
-        /// </summary>
-        public static BindableProperty<float> BombPercent = new BindableProperty<float>(0.1f);
-        /// <summary>
         /// 血包概率
         /// </summary>
         public static BindableProperty<float> HpPercent = new BindableProperty<float>(0.3f);
@@ -144,6 +140,20 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> BasketBallCount = new(Config.InitBasketBallCount);
         #endregion
+        #region 炸弹
+        /// <summary>
+        /// 能力解锁
+        /// </summary>
+        public static BindableProperty<bool> BombeUnlocked = new BindableProperty<bool>(false);
+        /// <summary>
+        /// 炸弹伤害
+        /// </summary>
+        public static BindableProperty<float> BombAtk = new(Config.InitBombDamage);
+        /// <summary>
+        /// 炸弹概率
+        /// </summary>
+        public static BindableProperty<float> BombPercent = new(Config.InitBombPercent);
+        #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
@@ -156,7 +166,6 @@ namespace SurvivalGame
             CoinsPercent.Value = PlayerPrefs.GetFloat(nameof(CoinsPercent), 0.05f);
             HpPercent.Value = PlayerPrefs.GetFloat(nameof(HpPercent), 0.15f);
             MagnetPercent.Value = PlayerPrefs.GetFloat(nameof(MagnetPercent), 0.15f);
-            BombPercent.Value = PlayerPrefs.GetFloat(nameof(BombPercent), 0.1f);
             HP.Value = MaxHp.Value;
             MaxHp.Register(_hp =>
             {
@@ -182,10 +191,6 @@ namespace SurvivalGame
             {
                 PlayerPrefs.SetFloat(nameof(MagnetPercent), _magnetPercent);
             });
-            BombPercent.Register(_bombPercent =>
-            {
-                PlayerPrefs.SetFloat(nameof(BombPercent), _bombPercent);
-            });
         }
         public static int GetExp()
         {
@@ -203,25 +208,29 @@ namespace SurvivalGame
                 return;
             }
             DropRate = Random.Range(0, 1f);
-            if(DropRate <= CoinsPercent.Value)
+            if (DropRate <= CoinsPercent.Value)
             {
                 //生成金币
                 DropManager.Default.Coins.Instantiate().Position(go.Position()).Show();
                 return;
             }
             DropRate = Random.Range(0, 1f);
-            if(DropRate <= HpPercent.Value)
+            if (DropRate <= HpPercent.Value)
             {
                 //生成血包
                 DropManager.Default.Hp.Instantiate().Position(go.Position()).Show();
                 return;
             }
-            DropRate = Random.Range(0, 1f);
-            if (DropRate <= BombPercent.Value)
+            //// 炸弹已解锁 且 场景中不存在炸弹
+            if (BombeUnlocked.Value && !Object.FindObjectOfType<Bomb>())
             {
-                //生成炸弹
-                DropManager.Default.Bomb.Instantiate().Position(go.Position()).Show();
-                return;
+                DropRate = Random.Range(0, 1f);
+                if (DropRate <= BombPercent.Value)
+                {
+                    //生成炸弹
+                    DropManager.Default.Bomb.Instantiate().Position(go.Position()).Show();
+                    return;
+                }
             }
             DropRate = Random.Range(0, 1f);
             if (DropRate <= MagnetPercent.Value)
@@ -257,6 +266,10 @@ namespace SurvivalGame
             BasketBallAtk.Value = Config.InitBasketBallDamage;
             BasketBallCount.Value = Config.InitBasketBallCount;
 
+            BombeUnlocked.Value = false;
+            BombAtk.Value = Config.InitBombDamage;
+            BombPercent.Value = Config.InitBombPercent;
+
             Exp.Value = 0;
             Leve.Value = 1;
             Second.Value = 0;
@@ -273,7 +286,6 @@ namespace SurvivalGame
             Coins.Value = 0;
             ExpPercent.Value = 0.3f;//30%
             CoinsPercent.Value = 0.05f;//5%
-            BombPercent.Value = 0.1f;//10%
             HpPercent.Value = 0.15f;//15%
             MagnetPercent.Value = 0.15f;//15%
         }

@@ -3,7 +3,6 @@ using QAssetBundle;
 using QFramework;
 using SurvivalGame;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace Brotato
 {

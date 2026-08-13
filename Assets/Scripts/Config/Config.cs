@@ -76,5 +76,15 @@ namespace Brotato
         /// </summary>
         public const int InitBasketBallCount = 1;
         #endregion
+        #region 炸弹
+        /// <summary>
+        /// 初始伤害
+        /// </summary>
+        public const float InitBombDamage = 10f;
+        /// <summary>
+        /// 初始概率
+        /// </summary>
+        public const float InitBombPercent = 0.05f;
+        #endregion
     }
 }

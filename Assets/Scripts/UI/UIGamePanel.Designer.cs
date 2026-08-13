@@ -5,7 +5,7 @@ using QFramework;
 
 namespace GameUI
 {
-	// Generate Id:75107f8f-aabb-427f-b41e-3f3daf224dab
+	// Generate Id:9d56c0d0-fa77-4b28-ae83-fd387e00a068
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -22,6 +22,8 @@ namespace GameUI
 		public ExpUpgradePanel ExpUpgrade;
 		[SerializeField]
 		public UnityEngine.UI.Image ExpBgValue;
+		[SerializeField]
+		public UnityEngine.UI.Image ScreenColor;
 		
 		private UIGamePanelData mPrivateData = null;
 		
@@ -33,6 +35,7 @@ namespace GameUI
 			coins = null;
 			ExpUpgrade = null;
 			ExpBgValue = null;
+			ScreenColor = null;
 			
 			mData = null;
 		}

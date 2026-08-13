@@ -11,6 +11,14 @@ namespace Brotato
 {
     internal class ExpUpgradeItem
     {
+        public ExpUpgradeItem(bool flag)
+        {
+            IsWeapon = flag;
+        }
+        /// <summary>
+        /// 是否是武器
+        /// </summary>
+        public bool IsWeapon = false;
         /// <summary>
         /// 建
         /// </summary>

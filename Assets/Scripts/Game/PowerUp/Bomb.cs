@@ -1,4 +1,5 @@
-﻿using QFramework;
+﻿using GameUI;
+using QFramework;
 using SurvivalGame;
 using UnityEngine;
 
@@ -24,8 +25,10 @@ namespace Brotato
                 {
                     enemy.Hide(enemy.HP);
                 }
-                this.DestroyGameObjGracefully();
+                UIGamePanel.FlashScreen.Trigger();
                 CameraMove.Shake();
+                this.DestroyGameObjGracefully();
+                
             }
 
         }

@@ -32,7 +32,7 @@ namespace Brotato
         {
             Item.Clear();
 
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("simple_sword")
                 .WithDes(lv =>
                 {
@@ -97,7 +97,7 @@ namespace Brotato
                             break;
                     }
                 }));
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("simple_Kinf")
                 .WithDes(lv =>
                 {
@@ -165,7 +165,7 @@ namespace Brotato
                             break;
                     }
                 }));
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("Rotatte_Sword")
                 .WithDes(lv =>
                 {
@@ -229,7 +229,7 @@ namespace Brotato
                             break;
                     }
                 }));
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("basket_ball")
                 .WithDes(lv =>
                 {
@@ -285,6 +285,71 @@ namespace Brotato
                             break;
                     }
                 }));
+            Add(new ExpUpgradeItem(false)
+                .WithKey("Bomb_ball")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"炸弹Lv{lv}:对所有敌人造成伤害",
+                        2 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        3 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        4 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        5 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        6 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        7 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        8 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        9 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        10 => $"炸弹Lv{lv}:掉落概率+5% 攻击+5",
+                        _ => null
+                    };
+                })
+                .WithMax(10)
+                .OnUpgrade((_, leve) =>
+                {
+                    switch (leve)
+                    {
+                        case 1:
+                            Global.BasketBalleUnlocked.Value = true;
+                            break;
+                        case 2:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 3:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 4:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 5:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 6:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 7:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 8:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 9:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                        case 10:
+                            Global.BombPercent.Value += 0.05f;
+                            Global.BombAtk.Value += 5;
+                            break;
+                    }
+                }));
         }
         public void Roll()
         {
@@ -292,7 +357,7 @@ namespace Brotato
             {
                 item1.Visible.Value = false;
             }
-            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(4))
+            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(5))
             {
                 if (item == null)
                 {

@@ -12,6 +12,10 @@ namespace GameUI
 	}
 	public partial class UIGamePanel : UIPanel
 	{
+        /// <summary>
+        /// 闪烁
+        /// </summary>
+        public static EasyEvent FlashScreen = new EasyEvent();
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -70,6 +74,17 @@ namespace GameUI
                 }
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject); //gameObject被销毁或隐藏时注销事件
+
+            FlashScreen.Register(() =>
+            {
+                //创建一个动作序列
+                ActionKit.Sequence()
+                //从0到0.5，持续时间0.1秒
+                .Lerp(0, 0.5f, 0.1f, alpha => ScreenColor.ColorAlpha(alpha))
+                //从0.5到0，持续时间0.2秒 结束设置为透明
+                .Lerp(0.5f, 0, 0.2f, alpha => ScreenColor.ColorAlpha(alpha), () => ScreenColor.ColorAlpha(0))
+                .Start(this);
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
             #endregion
         }
 

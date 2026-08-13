@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 330730363
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ae4a0cfe0056c3e3479e3575730f3fcf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c6042ab2c58f23ac88fd0adc7b659c3c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: ae4a0cfe0056c3e3479e3575730f3fcf
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6631343dfbcfeca49957237da5f888eb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/UIPrefab/UIGame.prefab
+Dependencies: []

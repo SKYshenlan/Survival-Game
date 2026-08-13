@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2130044728
+CRC: 1692066661
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f1dad8546f2133eefd31953695e7e846
+    Hash: 1934d5ea8fd2b79b8ff6691ce0c87a60
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a2ca7bdbd1871f7131daf57de908e0c
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: f1dad8546f2133eefd31953695e7e846
+    Hash: 1934d5ea8fd2b79b8ff6691ce0c87a60
 HashAppended: 0
 ClassTypes:
 - Class: 83
@@ -21,6 +21,9 @@ Assets:
 - Assets/Art/Sound/Sfx/die.wav
 - Assets/Art/Sound/Sfx/game_pass.wav
 - Assets/Art/Sound/Sfx/coin.wav
+- Assets/Art/Sound/Sfx/enemy_die.mp3
+- Assets/Art/Sound/Sfx/ball.wav
+- Assets/Art/Sound/Sfx/knife.wav
 - Assets/Art/Sound/Sfx/bomb.wav
 - Assets/Art/Sound/Sfx/exp.wav
 - Assets/Art/Sound/Sfx/level_up.wav
