@@ -19,11 +19,23 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: Brotato.Ball
-      PathToRoot: Ball
-      MemberName: Ball
+    - TypeName: Brotato.Simple_Sword
+      PathToRoot: Simple_Sword
+      MemberName: Simple_Sword
+    - TypeName: Brotato.RotatteSword
+      PathToRoot: RotatteSword
+      MemberName: RotatteSword
+    - TypeName: Brotato.SimpleAxe
+      PathToRoot: SimpleAxe
+      MemberName: SimpleAxe
+    - TypeName: Brotato.SimpleKnife
+      PathToRoot: SimpleKnife
+      MemberName: SimpleKnife
+    - TypeName: Brotato.BasketBallAbilit
+      PathToRoot: BasketBallAbilit
+      MemberName: BasketBallAbilit
     ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: BasketBallAbilit
+    ClassName: AbilityCount
     Namespace: Brotato
     MainCode: 
     DesignerCode: 

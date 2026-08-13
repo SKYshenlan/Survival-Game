@@ -68,6 +68,27 @@ MonoBehaviour:
       Second: 30
       HPScale: 1
       SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      DurationSec: 0.4
+      EnemyPrefab: {fileID: 3894023778426966600, guid: 1294797657e5dc345b6ce2e6bea2abeb, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      DurationSec: 0.2
+      EnemyPrefab: {fileID: 3894023778426966600, guid: 1294797657e5dc345b6ce2e6bea2abeb, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8718\u86DB"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 3894023778426966600, guid: 1294797657e5dc345b6ce2e6bea2abeb, type: 3}
+      Second: 40
+      HPScale: 1
+      SpeedScale: 1
     - Name: Boss
       Active: 1
       DurationSec: 5
@@ -90,6 +111,34 @@ MonoBehaviour:
       DurationSec: 0.5
       EnemyPrefab: {fileID: 1007577341046533652, guid: 53aad119a20f12b4fb97036659e4df15, type: 3}
       Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8759\u8760"
+      Active: 1
+      DurationSec: 0.5
+      EnemyPrefab: {fileID: 1007577341046533652, guid: 53aad119a20f12b4fb97036659e4df15, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8759\u8760"
+      Active: 1
+      DurationSec: 0.4
+      EnemyPrefab: {fileID: 1007577341046533652, guid: 53aad119a20f12b4fb97036659e4df15, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8759\u8760"
+      Active: 1
+      DurationSec: 0.3
+      EnemyPrefab: {fileID: 1007577341046533652, guid: 53aad119a20f12b4fb97036659e4df15, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u8759\u8760"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 1007577341046533652, guid: 53aad119a20f12b4fb97036659e4df15, type: 3}
+      Second: 40
       HPScale: 1
       SpeedScale: 1
     - Name: Boss
@@ -116,6 +165,41 @@ MonoBehaviour:
       Second: 30
       HPScale: 1
       SpeedScale: 1
+    - Name: "\u72EC\u773C"
+      Active: 1
+      DurationSec: 0.7
+      EnemyPrefab: {fileID: 1416737518637104232, guid: c9e7061d98dd05d4e9f9fc591f13df8c, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u72EC\u773C"
+      Active: 1
+      DurationSec: 0.6
+      EnemyPrefab: {fileID: 1416737518637104232, guid: c9e7061d98dd05d4e9f9fc591f13df8c, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u72EC\u773C"
+      Active: 1
+      DurationSec: 0.5
+      EnemyPrefab: {fileID: 1416737518637104232, guid: c9e7061d98dd05d4e9f9fc591f13df8c, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u72EC\u773C"
+      Active: 1
+      DurationSec: 0.4
+      EnemyPrefab: {fileID: 1416737518637104232, guid: c9e7061d98dd05d4e9f9fc591f13df8c, type: 3}
+      Second: 35
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u72EC\u773C"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 1416737518637104232, guid: c9e7061d98dd05d4e9f9fc591f13df8c, type: 3}
+      Second: 45
+      HPScale: 1
+      SpeedScale: 1
     - Name: Boss
       Active: 1
       DurationSec: 5
@@ -140,6 +224,48 @@ MonoBehaviour:
       Second: 30
       HPScale: 1
       SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.8
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.7
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.6
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.5
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 35
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.4
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 45
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u6D77\u7EF5"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 2769269770990279513, guid: 8b77fa3c462d93f4c90eb779f34392b3, type: 3}
+      Second: 50
+      HPScale: 1
+      SpeedScale: 1
     - Name: Boss
       Active: 1
       DurationSec: 5
@@ -162,6 +288,62 @@ MonoBehaviour:
       DurationSec: 0.5
       EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
       Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.8
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.7
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 30
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.6
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 35
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.5
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 40
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.4
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 45
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.3
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 50
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.2
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 55
+      HPScale: 1
+      SpeedScale: 1
+    - Name: "\u5DEB\u5E08"
+      Active: 1
+      DurationSec: 0.1
+      EnemyPrefab: {fileID: 6585979828309360748, guid: 68198ab7dd590474abae52bc5eaa6998, type: 3}
+      Second: 60
       HPScale: 1
       SpeedScale: 1
     - Name: Boss

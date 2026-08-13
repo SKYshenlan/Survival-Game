@@ -57,6 +57,7 @@ namespace Brotato
                     switch (leve)
                     {
                         case 1:
+                            Global.AtkeUnlocked.Value = true;
                             break;
                         case 2:
                             Global.Atk.Value += 3;
@@ -121,6 +122,7 @@ namespace Brotato
                     switch (leve)
                     {
                         case 1:
+                            Global.KinfeUnlocked.Value = true;
                             break;
                         case 2:
                             Global.KinfAtk.Value += 3;
@@ -188,6 +190,7 @@ namespace Brotato
                     switch (leve)
                     {
                         case 1:
+                            Global.RotatteSwordeUnlocked.Value = true;
                             break;
                         case 2:
                             Global.RotatteSwordCount.Value += 1;
@@ -251,6 +254,7 @@ namespace Brotato
                     switch (leve)
                     {
                         case 1:
+                            Global.BasketBalleUnlocked.Value = true;
                             break;
                         case 2:
                             Global.BasketBallAtk.Value += 3;

@@ -62,6 +62,10 @@ namespace SurvivalGame
         #endregion
         #region 弯刀攻击
         /// <summary>
+        /// 能力解锁
+        /// </summary>
+        public static BindableProperty<bool> AtkeUnlocked = new BindableProperty<bool>(false);
+        /// <summary>
         /// 攻击力
         /// </summary>
         public static BindableProperty<float> Atk = new(Config.InitSimpleSwordDamage);
@@ -79,6 +83,10 @@ namespace SurvivalGame
         public static BindableProperty<float> AtkRamge = new(Config.InitSimpleSwordRange);
         #endregion
         #region 飞刀
+        /// <summary>
+        /// 能力解锁
+        /// </summary>
+        public static BindableProperty<bool> KinfeUnlocked = new BindableProperty<bool>(false);
         /// <summary>
         /// 飞刀伤害
         /// </summary>
@@ -98,6 +106,10 @@ namespace SurvivalGame
         #endregion
         #region 旋转剑
         /// <summary>
+        /// 能力解锁
+        /// </summary>
+        public static BindableProperty<bool> RotatteSwordeUnlocked = new BindableProperty<bool>(false);
+        /// <summary>
         /// 旋转剑伤害
         /// </summary>
         public static BindableProperty<float> RotatteSwordAtk = new(Config.InitRotatteSwordDamage);
@@ -115,6 +127,10 @@ namespace SurvivalGame
         public static BindableProperty<float> RotatteSwordRange = new(Config.InitRotatteSwordRange);
         #endregion
         #region 篮球
+        /// <summary>
+        /// 能力解锁
+        /// </summary>
+        public static BindableProperty<bool> BasketBalleUnlocked = new BindableProperty<bool>(false);
         /// <summary>
         /// 篮球速度
         /// </summary>
@@ -218,21 +234,25 @@ namespace SurvivalGame
         }
         public static void ResetData()
         {
+            AtkeUnlocked.Value = false;
             Atk.Value = Config.InitSimpleSwordDamage;
             AtkSpeed.Value = Config.InitSimpleSwordDuration;
             AtkCount.Value = Config.InitSimpleSwordCount;
             AtkRamge.Value = Config.InitSimpleSwordRange;
 
+            KinfeUnlocked.Value = false;
             KinfAtk.Value = Config.InitSimpleKnifDamage;
             KinfAtkCout.Value = Config.InitSimpleKnifCount;
             KinfAtkSpeed.Value = Config.InitSimpleKnifDuration;
             KinfPenetration.Value = Config.InitSimpleKinfPenetration;
 
+            RotatteSwordeUnlocked.Value = false;
             RotatteSwordAtk.Value = Config.InitRotatteSwordDamage;
             RotatteSwordCount.Value = Config.InitRotatteSwordCount;
             RotatteSwordSpeed.Value = Config.InitRotatteSwordDuration;
             RotatteSwordRange.Value = Config.InitRotatteSwordRange;
 
+            BasketBalleUnlocked.Value = false;
             BasketBallSpeed.Value = Config.InitBasketBallDuration;
             BasketBallAtk.Value = Config.InitBasketBallDamage;
             BasketBallCount.Value = Config.InitBasketBallCount;

@@ -297,13 +297,14 @@ GameObject:
   - component: {fileID: 181829463}
   - component: {fileID: 181829462}
   - component: {fileID: 181829461}
+  - component: {fileID: 181829464}
   m_Layer: 6
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181829457
 Transform:
   m_ObjectHideFlags: 0
@@ -316,7 +317,8 @@ Transform:
   m_LocalPosition: {x: 2.336, y: 0.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1448556579}
   m_Father: {fileID: 336787207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &181829458
@@ -440,6 +442,7 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+  HurtBox: {fileID: 1448556582}
   SdelfRigidbody2D: {fileID: 181829463}
 --- !u!50 &181829463
 Rigidbody2D:
@@ -468,6 +471,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &181829464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181829456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Ball
+  CustomComment: 
+  mComponentName: Brotato.Ball
 --- !u!1 &256389973
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 256389974}
+  - component: {fileID: 256389975}
   m_Layer: 0
   m_Name: Ability
   m_TagString: Untagged
@@ -504,6 +524,30 @@ Transform:
   - {fileID: 336787207}
   m_Father: {fileID: 830763319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256389975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256389973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6515015d3dda047a74b704ae268233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: Brotato
+  ScriptName: AbilityCount
+  ScriptsFolder: Assets/Scripts/Game/Ability
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Simple_Sword: {fileID: 1353008850}
+  RotatteSword: {fileID: 1424177022}
+  SimpleAxe: {fileID: 1795451725}
+  SimpleKnife: {fileID: 1778774580}
+  BasketBallAbilit: {fileID: 336787208}
 --- !u!4 &261701424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8823675956915718397, guid: 1294797657e5dc345b6ce2e6bea2abeb, type: 3}
@@ -518,13 +562,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336787207}
+  - component: {fileID: 336787208}
+  - component: {fileID: 336787209}
   m_Layer: 0
   m_Name: BasketBallAbilit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &336787207
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +587,42 @@ Transform:
   - {fileID: 181829457}
   m_Father: {fileID: 256389974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336787208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336787206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f31d805f0c94cb45bff8ff4ea5f9eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: Brotato
+  ScriptName: BasketBallAbilit
+  ScriptsFolder: Assets/Scripts/Game/Ability
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Ball: {fileID: 181829462}
+--- !u!114 &336787209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336787206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketBallAbilit
+  CustomComment: 
+  mComponentName: Brotato.BasketBallAbilit
 --- !u!1 &346895901
 GameObject:
   m_ObjectHideFlags: 0
@@ -112021,6 +112103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353008849}
   - component: {fileID: 1353008850}
+  - component: {fileID: 1353008851}
   m_Layer: 0
   m_Name: Simple_Sword
   m_TagString: Untagged
@@ -112064,6 +112147,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Sword: {fileID: 1954063206}
+--- !u!114 &1353008851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353008848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: Simple_Sword
+  CustomComment: 
+  mComponentName: Brotato.Simple_Sword
 --- !u!1 &1373697976
 GameObject:
   m_ObjectHideFlags: 0
@@ -112119,6 +112218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424177021}
   - component: {fileID: 1424177022}
+  - component: {fileID: 1424177023}
   m_Layer: 0
   m_Name: RotatteSword
   m_TagString: Untagged
@@ -112162,6 +112262,127 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Sword: {fileID: 897096069}
+--- !u!114 &1424177023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424177020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: RotatteSword
+  CustomComment: 
+  mComponentName: Brotato.RotatteSword
+--- !u!1 &1448556578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448556579}
+  - component: {fileID: 1448556582}
+  - component: {fileID: 1448556581}
+  - component: {fileID: 1448556580}
+  m_Layer: 0
+  m_Name: HurtBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448556579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448556578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 181829457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448556580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448556578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: HurtBox
+  CustomComment: 
+  mComponentName: Brotato.HurtBox
+--- !u!58 &1448556581
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448556578}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1448556582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448556578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fddb1de9b1c434d822c04daff9d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: Brotato
+  ScriptName: HurtBox
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Owner: {fileID: 181829456}
 --- !u!1 &1448622566
 GameObject:
   m_ObjectHideFlags: 0
@@ -112738,6 +112959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778774579}
   - component: {fileID: 1778774580}
+  - component: {fileID: 1778774581}
   m_Layer: 0
   m_Name: SimpleKnife
   m_TagString: Untagged
@@ -112781,6 +113003,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Knife: {fileID: 1517124392}
+--- !u!114 &1778774581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778774578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SimpleKnife
+  CustomComment: 
+  mComponentName: Brotato.SimpleKnife
 --- !u!1 &1795451723
 GameObject:
   m_ObjectHideFlags: 0
@@ -112791,6 +113029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1795451724}
   - component: {fileID: 1795451725}
+  - component: {fileID: 1795451726}
   m_Layer: 0
   m_Name: SimpleAxe
   m_TagString: Untagged
@@ -112834,6 +113073,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Axe: {fileID: 1601856154}
+--- !u!114 &1795451726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795451723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SimpleAxe
+  CustomComment: 
+  mComponentName: Brotato.SimpleAxe
 --- !u!1 &1821437968
 GameObject:
   m_ObjectHideFlags: 0
