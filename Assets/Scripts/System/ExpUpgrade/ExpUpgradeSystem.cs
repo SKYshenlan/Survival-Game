@@ -350,6 +350,62 @@ namespace Brotato
                             break;
                     }
                 }));
+            Add(new ExpUpgradeItem(false)
+                .WithKey("Damage_ball")
+                .WithDes(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"暴击Lv{lv}:提升5%暴击率",
+                        2 => $"暴击Lv{lv}:提升5%暴击率",
+                        3 => $"暴击Lv{lv}:提升5%暴击率",
+                        4 => $"暴击Lv{lv}:提升5%暴击率",
+                        5 => $"暴击Lv{lv}:提升5%暴击率",
+                        6 => $"暴击Lv{lv}:提升5%暴击率",
+                        7 => $"暴击Lv{lv}:提升5%暴击率",
+                        8 => $"暴击Lv{lv}:提升5%暴击率",
+                        9 => $"暴击Lv{lv}:提升5%暴击率",
+                        10 => $"暴击Lv{lv}:提升5%暴击率",
+                        _ => null
+                    };
+                })
+                .WithMax(10)
+                .OnUpgrade((_, leve) =>
+                {
+                    switch (leve)
+                    {
+                        case 1:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 2:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 3:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 4:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 5:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 6:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 7:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 8:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 9:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                        case 10:
+                            Global.Damage.Value += 0.05f;
+                            break;
+                    }
+                }));
         }
         public void Roll()
         {
@@ -357,18 +413,21 @@ namespace Brotato
             {
                 item1.Visible.Value = false;
             }
-            foreach (var item in Item.Where(item => !item.UpgradeFinish).Take(5))
+            var list = Item.Where(item => !item.UpgradeFinish).ToList();
+            if (list.Count >= 4)
             {
-                if (item == null)
-                {
-
-                }
-                else
+                list.GetAndRemoveRandomItem().Visible.Value = true;
+                list.GetAndRemoveRandomItem().Visible.Value = true;
+                list.GetAndRemoveRandomItem().Visible.Value = true;
+                list.GetAndRemoveRandomItem().Visible.Value = true;
+            }
+            else
+            {
+                foreach (var item in list)
                 {
                     item.Visible.Value = true;
                 }
             }
-            
         }
     }
 }

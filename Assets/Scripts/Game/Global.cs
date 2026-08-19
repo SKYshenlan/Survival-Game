@@ -154,6 +154,9 @@ namespace SurvivalGame
         /// </summary>
         public static BindableProperty<float> BombPercent = new(Config.InitBombPercent);
         #endregion
+        #region 暴击
+        public static BindableProperty<float> Damage = new(Config.InitDamage);
+        #endregion
         ///启动时自动执行
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
@@ -269,6 +272,8 @@ namespace SurvivalGame
             BombeUnlocked.Value = false;
             BombAtk.Value = Config.InitBombDamage;
             BombPercent.Value = Config.InitBombPercent;
+
+            Damage.Value = Config.InitDamage;
 
             Exp.Value = 0;
             Leve.Value = 1;

@@ -86,5 +86,8 @@ namespace Brotato
         /// </summary>
         public const float InitBombPercent = 0.05f;
         #endregion
+        #region 暴击
+        public const float InitDamage = 0.05f;
+        #endregion
     }
 }

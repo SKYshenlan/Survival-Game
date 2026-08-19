@@ -8,7 +8,7 @@ namespace Brotato
 {
     internal interface IEnemy
     {
-        public void Hide(float value, bool flag = false);
+        public void Hide(float value, bool force = false, bool critical = false);
         void SetHPScale(float hPScale);
         void SetSpeedScale(float speedScale);
     }

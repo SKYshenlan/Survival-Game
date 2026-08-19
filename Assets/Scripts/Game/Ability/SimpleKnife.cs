@@ -54,7 +54,8 @@ namespace Brotato
                                     {
                                         if (Box.Owner.CompareTag("Enemy"))
                                         {
-                                            Box.Owner.GetComponent<Enemy>().Hide(Global.KinfAtk.Value);
+                                            //暴击概率                    伤害          敌人
+                                            DamageSystem.CalculateDamage(Global.KinfAtk.Value, Box.Owner.GetComponent<Enemy>());
                                             AttackCount++;
                                             if(AttackCount >= Global.KinfPenetration.Value)
                                             {

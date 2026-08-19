@@ -119,12 +119,12 @@ namespace Brotato
                 this.DestroyGameObjGracefully();
             }
         }
-        public void Hide(float value, bool flag = false)
+        public void Hide(float value, bool flag = false,bool critical = false)
         {
             if (_flag) return;
             //更改敌人颜色表示受伤
             Triangle.color = Color.red;
-            FloatingTextController.Play(transform.position + Vector3.up, value);
+            FloatingTextController.Play(transform.position + Vector3.up, value, critical);
             HP -= value;
             AudioKit.PlaySound("hit");
             //静态管理器 延迟任务注册到全局生命周期

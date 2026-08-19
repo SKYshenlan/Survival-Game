@@ -28,7 +28,8 @@ namespace Brotato
                                 {
                                      if (Box.Owner.CompareTag("Enemy"))
                                      {
-                                         Box.Owner.GetComponent<Enemy>().Hide(Global.RotatteSwordAtk.Value);
+                                         //暴击概率                    伤害          敌人
+                                         DamageSystem.CalculateDamage(Global.RotatteSwordAtk.Value, Box.Owner.GetComponent<Enemy>());
 										 if (Random.Range(0, 1f) < 0.5f)
                                          {	
 											 //自身方向与朝向玩家位置方向产生的推力

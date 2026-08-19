@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Linq;
 using QFramework;
 using SurvivalGame;
-using System.Linq;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Brotato
 {
@@ -39,7 +40,8 @@ namespace Brotato
                                     {
                                         if (hurtBox.Owner.CompareTag("Enemy"))
                                         {
-                                            hurtBox.Owner.GetComponent<Enemy>().Hide(Global.Atk.Value);
+                                            //暴击概率                    伤害          敌人
+                                            DamageSystem.CalculateDamage(Global.Atk.Value, hurtBox.Owner.GetComponent<Enemy>());
                                         }
                                     }
                                 }).UnRegisterWhenGameObjectDestroyed(gameObject);

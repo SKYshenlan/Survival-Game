@@ -36,7 +36,8 @@ namespace Brotato
                             {
                                 if (Box.Owner.CompareTag("Enemy"))
                                 {
-                                    Box.Owner.GetComponent<Enemy>().Hide(Global.Atk.Value);
+                                    //暴击概率                    伤害          敌人
+                                    DamageSystem.CalculateDamage(Global.Atk.Value, Box.Owner.GetComponent<Enemy>());
                                 }
                             }
                         }).UnRegisterWhenGameObjectDestroyed(self);

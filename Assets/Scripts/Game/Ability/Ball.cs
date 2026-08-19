@@ -18,7 +18,9 @@ namespace Brotato
 					if (hurtBox.Owner.CompareTag("Enemy"))
 					{
 						var enemy = hurtBox.Owner.GetComponent<IEnemy>();
-						enemy.Hide(Global.BasketBallAtk.Value);
+						//暴击概率                    伤害          敌人
+						DamageSystem.CalculateDamage(Global.BasketBallAtk.Value, enemy);
+						//enemy.Hide(Global.BasketBallAtk.Value);
                         if (Random.Range(0, 1f) < 0.5f&&call&&call.attachedRigidbody&&Play.Defaulf)
                         {
                             //自身方向与朝向玩家位置方向产生的推力

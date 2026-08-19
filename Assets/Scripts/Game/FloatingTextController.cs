@@ -17,7 +17,7 @@ namespace Brotato
 			FloatingText.Hide();
 
 		}
-        public static void Play(Vector2 pos,float text)
+        public static void Play(Vector2 pos,float text,bool critical = false)
         {
             //生成伤害文字
             mDefault.FloatingText.InstantiateWithParent(mDefault.transform).Position(pos.x,pos.y).Self(f =>
@@ -29,6 +29,11 @@ namespace Brotato
                 var atkComp = atk.GetComponent<Text>();
                 //显示伤害
                 atkComp.text = text.ToString("0.##");
+                //暴击颜色
+                if (critical)
+                {
+                    atkComp.color = Color.red;
+                }
                 //0.5秒后删除
                 ActionKit.Sequence()
                 .Lerp(0, 0.5f, 0.5f, (p) =>
